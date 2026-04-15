@@ -6,6 +6,7 @@ import {
   profile,
   skills as cvSkills,
 } from './cvData.js'
+import { credlyBadges, credlyProfileUrl } from './credlyBadges'
 
 export const navItems = ['About', 'Experience', 'Skills', 'Projects', 'Certificates', 'Contact']
 
@@ -20,6 +21,7 @@ export const personalInfo = {
   summary: profile.summary,
   heroSummary:
     'Full-stack web engineer with 3+ years of experience building scalable applications across government, education, and operational domains.',
+  credly: credlyProfileUrl,
 }
 
 export const features: Feature[] = [
@@ -247,14 +249,37 @@ export const projects: Project[] = [
   },
 ]
 
+const certificateColors = ['bg-sky-400', 'bg-fuchsia-400', 'bg-emerald-400']
+
 export const certificates: Certificate[] = [
+  ...credlyBadges.map((item, idx) => ({
+    title: item.title,
+    issuer: item.issuer,
+    date: item.issuedAt,
+    description: `Verified credential issued by ${item.issuer} via Credly.`,
+    skills: ['Verified Badge', 'Credential Validation'],
+    link: item.badgeUrl,
+    imageUrl: item.imageUrl,
+    color: certificateColors[idx % certificateColors.length],
+  })),
   ...cvCertificates.map((item: (typeof cvCertificates)[number], idx: number) => ({
     title: item.title,
     issuer: 'Professional Certification',
     date: item.period,
     description: item.description,
-    skills: idx === 0 ? ['Linux', 'System Administration'] : ['Professional Development'],
-    link: '#',
-    color: ['bg-sky-400', 'bg-fuchsia-400', 'bg-emerald-400'][idx % 3],
+    skills:
+      idx === 0
+        ? ['Linux', 'System Administration']
+        : idx === 1
+          ? ['Instructor', 'Red Hat', 'Linux']
+          : ['MERN', 'Web Development', 'Scrum'],
+    link: credlyProfileUrl,
+    imageUrl:
+      item.title === 'Red Hat Certified Instructor'
+        ? '/certificate/image copy.png'
+        : item.title === 'MERN Fullstack Web Developer'
+          ? '/certificate/image.png'
+          : undefined,
+    color: certificateColors[(idx + credlyBadges.length) % certificateColors.length],
   })),
 ]

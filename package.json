@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "update:credly": "node ./scripts/update-credly-badges.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",

@@ -39,4 +39,5 @@ export type Certificate = {
   skills: string[]
   link: string
   color: string
+  imageUrl?: string
 }
