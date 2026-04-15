@@ -9,3 +9,42 @@ body {
   font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
   background: #e4e4e4;
 }
+
+.theme-dark {
+  background: #020617;
+  color: #e2e8f0;
+}
+
+.theme-dark .bg-zinc-200,
+.theme-dark .bg-zinc-200\/95 {
+  background-color: #0f172a !important;
+}
+
+.theme-dark .bg-zinc-100 {
+  background-color: #111827 !important;
+}
+
+.theme-dark .bg-white {
+  background-color: #0b1220 !important;
+}
+
+.theme-dark .text-zinc-900,
+.theme-dark .text-slate-700,
+.theme-dark .text-slate-600,
+.theme-dark .text-slate-500 {
+  color: #cbd5e1 !important;
+}
+
+.theme-dark .text-sky-900,
+.theme-dark .text-emerald-900,
+.theme-dark .text-fuchsia-900 {
+  color: #0f172a !important;
+}
+
+.theme-dark .border-black {
+  border-color: #94a3b8 !important;
+}
+
+.theme-dark .bg-black {
+  background-color: #020617 !important;
+}

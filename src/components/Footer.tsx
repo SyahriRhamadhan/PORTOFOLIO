@@ -1,6 +1,7 @@
 import { Mail } from 'lucide-react'
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6'
 import { personalInfo } from '../data/portfolioData'
+import { motion } from 'framer-motion'
 
 export function Footer() {
   return (
@@ -17,16 +18,18 @@ export function Footer() {
             { label: 'LinkedIn', icon: FaLinkedinIn, href: personalInfo.linkedin },
             { label: 'Email', icon: Mail, href: `mailto:${personalInfo.email}` },
           ].map((item) => (
-            <a
+            <motion.a
               key={item.label}
               href={item.href}
               target={item.href.startsWith('http') ? '_blank' : undefined}
               rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
               aria-label={item.label}
+              whileHover={{ y: -3, x: -1 }}
+              transition={{ type: 'spring', stiffness: 320, damping: 18 }}
               className="flex h-14 w-14 items-center justify-center border-[2px] border-slate-500 bg-slate-800 text-zinc-100"
             >
               <item.icon className="h-6 w-6" />
-            </a>
+            </motion.a>
           ))}
         </div>
 

@@ -1,6 +1,7 @@
 import { features } from '../data/portfolioData'
 import { Brain, CodeXml, Users, Zap } from 'lucide-react'
 import { educationInfo, personalInfo } from '../data/portfolioData'
+import { motion } from 'framer-motion'
 
 const featureIcons = {
   code: CodeXml,
@@ -53,8 +54,10 @@ export function AboutSection() {
           {features.map((item) => {
             const Icon = featureIcons[item.icon]
             return (
-              <article
+              <motion.article
                 key={item.title}
+                whileHover={{ y: -4, x: -1 }}
+                transition={{ type: 'spring', stiffness: 280, damping: 20 }}
                 className="border-[4px] border-black bg-zinc-100 p-6 shadow-[6px_6px_0_0_#000]"
               >
                 <div
@@ -64,7 +67,7 @@ export function AboutSection() {
                 </div>
                 <h3 className="mb-3 text-4xl font-black">{item.title}</h3>
                 <p className="text-xl leading-relaxed text-slate-700">{item.desc}</p>
-              </article>
+              </motion.article>
             )
           })}
         </div>

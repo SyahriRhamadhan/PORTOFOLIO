@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { ExternalLink } from 'lucide-react'
 import { FaGithub } from 'react-icons/fa6'
 import { projects } from '../data/portfolioData'
+import { motion } from 'framer-motion'
 
 type ActionButtonProps = {
   href: string
@@ -14,15 +15,17 @@ function ActionButton({ href, className, children }: ActionButtonProps) {
 
   return (
     <div className="group relative">
-      <a
+      <motion.a
         href={href}
         onClick={(event) => {
           if (isOnProgress) event.preventDefault()
         }}
+        whileHover={{ y: -3, x: -1 }}
+        transition={{ type: 'spring', stiffness: 320, damping: 18 }}
         className={`${className} ${isOnProgress ? 'cursor-not-allowed' : ''}`}
       >
         {children}
-      </a>
+      </motion.a>
       {isOnProgress ? (
         <span className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap border-2 border-black bg-zinc-900 px-2 py-1 text-sm font-bold text-zinc-100 opacity-0 shadow-[3px_3px_0_0_#000] transition group-hover:opacity-100">
           On Progress
@@ -42,8 +45,10 @@ export function ProjectsSection() {
 
       <div className="grid gap-8 xl:grid-cols-2">
         {projects.map((project) => (
-          <article
+          <motion.article
             key={project.name}
+            whileHover={{ y: -4, x: -1 }}
+            transition={{ type: 'spring', stiffness: 280, damping: 20 }}
             className="relative overflow-hidden border-[4px] border-black bg-zinc-100 shadow-[6px_6px_0_0_#000]"
           >
             <div
@@ -98,7 +103,7 @@ export function ProjectsSection() {
                 </ActionButton>
               </div>
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
     </section>

@@ -1,4 +1,5 @@
 import { experiences } from '../data/portfolioData'
+import { motion } from 'framer-motion'
 
 export function ExperienceSection() {
   return (
@@ -9,10 +10,18 @@ export function ExperienceSection() {
       <div className="space-y-10">
         {experiences.map((item) => (
           <article key={item.role} className="grid gap-5 md:grid-cols-[170px_1fr]">
-            <div className="h-fit border-[4px] border-black bg-fuchsia-300 px-4 py-5 text-center text-3xl font-black shadow-[6px_6px_0_0_#000] md:sticky md:top-28">
+            <motion.div
+              whileHover={{ y: -3 }}
+              transition={{ type: 'spring', stiffness: 280, damping: 20 }}
+              className="h-fit border-[4px] border-black bg-fuchsia-300 px-4 py-5 text-center text-3xl font-black shadow-[6px_6px_0_0_#000] md:sticky md:top-28"
+            >
               {item.period}
-            </div>
-            <div className="border-[4px] border-black bg-zinc-100 p-6 shadow-[6px_6px_0_0_#000] md:p-8">
+            </motion.div>
+            <motion.div
+              whileHover={{ y: -4, x: -1 }}
+              transition={{ type: 'spring', stiffness: 280, damping: 20 }}
+              className="border-[4px] border-black bg-zinc-100 p-6 shadow-[6px_6px_0_0_#000] md:p-8"
+            >
               <h3 className="text-5xl font-extrabold leading-tight">{item.role}</h3>
               <p className="mt-3 text-3xl font-bold text-fuchsia-500">{item.org}</p>
               <p className="mt-4 text-[1.7rem] leading-relaxed text-slate-600">{item.intro}</p>
@@ -24,7 +33,7 @@ export function ExperienceSection() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           </article>
         ))}
       </div>

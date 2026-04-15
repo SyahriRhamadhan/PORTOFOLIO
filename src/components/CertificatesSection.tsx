@@ -1,5 +1,6 @@
 import { CalendarDays, ExternalLink, ScrollText } from 'lucide-react'
 import { certificates } from '../data/portfolioData'
+import { motion } from 'framer-motion'
 
 export function CertificatesSection() {
   return (
@@ -16,8 +17,10 @@ export function CertificatesSection() {
 
       <div className="grid gap-8 xl:grid-cols-3">
         {certificates.map((cert) => (
-          <article
+          <motion.article
             key={cert.title}
+            whileHover={{ y: -4, x: -1 }}
+            transition={{ type: 'spring', stiffness: 280, damping: 20 }}
             className="relative overflow-hidden border-[4px] border-black bg-zinc-100 shadow-[6px_6px_0_0_#000]"
           >
             <div className={`border-b-[4px] border-black p-5 ${cert.color}`}>
@@ -55,16 +58,18 @@ export function CertificatesSection() {
                 </div>
               </div>
 
-              <a
+              <motion.a
                 href={cert.link}
+                whileHover={{ y: -3, x: -1 }}
+                transition={{ type: 'spring', stiffness: 320, damping: 18 }}
                 className="inline-flex w-full items-center justify-center gap-2 border-[3px] border-black bg-zinc-900 px-4 py-3 text-xl font-bold text-zinc-100 shadow-[4px_4px_0_0_#000]"
               >
                 <ExternalLink className="h-5 w-5" />
                 View Certificate
-              </a>
+              </motion.a>
             </div>
 
-          </article>
+          </motion.article>
         ))}
       </div>
     </section>
