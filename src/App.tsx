@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import { AboutSection } from './components/AboutSection'
-import { AtsCvPage } from './components/AtsCvPage'
 import { BackToTopButton } from './components/BackToTopButton'
 import { CertificatesSection } from './components/CertificatesSection'
 import { ContactSection } from './components/ContactSection'
@@ -10,6 +9,8 @@ import { HeroSection } from './components/HeroSection'
 import { Navbar } from './components/Navbar'
 import { ProjectsSection } from './components/ProjectsSection'
 import { SkillsSection } from './components/SkillsSection'
+
+const AtsCvPage = lazy(() => import('./components/AtsCvPage').then((mod) => ({ default: mod.AtsCvPage })))
 
 function App() {
   const [isDark, setIsDark] = useState(false)
@@ -38,7 +39,11 @@ function App() {
   }, [])
 
   if (currentHash === '#cv') {
-    return <AtsCvPage />
+    return (
+      <Suspense fallback={<div className="min-h-screen bg-zinc-200" />}>
+        <AtsCvPage />
+      </Suspense>
+    )
   }
 
   return (

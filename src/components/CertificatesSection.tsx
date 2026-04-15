@@ -71,7 +71,15 @@ export function CertificatesSection() {
                     className="flex h-full w-full cursor-zoom-in items-center justify-center"
                     aria-label={`Open ${cert.title} certificate preview`}
                   >
-                    <img src={cert.imageUrl} alt={cert.title} className="max-h-full max-w-full object-contain" />
+                    <img
+                      src={cert.imageUrl}
+                      alt={cert.title}
+                      width={512}
+                      height={512}
+                      loading="lazy"
+                      decoding="async"
+                      className="max-h-full max-w-full object-contain"
+                    />
                   </button>
                 ) : (
                   <ScrollText className="h-16 w-16 text-zinc-400" />
@@ -140,7 +148,14 @@ export function CertificatesSection() {
               </button>
             </div>
             <div className="flex max-h-[74vh] items-center justify-center overflow-auto border-[3px] border-black bg-white p-2 md:max-h-[78vh] md:p-4">
-              <img src={preview.imageUrl} alt={preview.title} className="max-h-[68vh] w-auto max-w-full object-contain md:max-h-[72vh]" />
+              <img
+                src={preview.imageUrl}
+                alt={preview.title}
+                width={900}
+                height={700}
+                decoding="async"
+                className="max-h-[68vh] w-auto max-w-full object-contain md:max-h-[72vh]"
+              />
             </div>
           </motion.div>
         </div>

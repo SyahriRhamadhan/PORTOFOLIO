@@ -88,6 +88,10 @@ export function ProjectsSection() {
                     <img
                       src={project.previewImage}
                       alt={`${project.name} preview`}
+                      width={1600}
+                      height={900}
+                      loading="lazy"
+                      decoding="async"
                       className="h-full w-full object-cover"
                     />
                   </button>
@@ -174,7 +178,14 @@ export function ProjectsSection() {
               </button>
             </div>
             <div className="flex max-h-[74vh] items-center justify-center overflow-auto border-[3px] border-black bg-white p-2 md:max-h-[80vh] md:p-4">
-              <img src={preview.imageUrl} alt={preview.title} className="max-h-[68vh] w-auto max-w-full object-contain md:max-h-[74vh]" />
+              <img
+                src={preview.imageUrl}
+                alt={preview.title}
+                width={1600}
+                height={900}
+                decoding="async"
+                className="max-h-[68vh] w-auto max-w-full object-contain md:max-h-[74vh]"
+              />
             </div>
           </motion.div>
         </div>

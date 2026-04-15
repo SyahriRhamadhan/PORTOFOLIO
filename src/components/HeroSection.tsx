@@ -92,7 +92,15 @@ export function HeroSection() {
           className="-rotate-3 border-[5px] border-black bg-white p-3 shadow-[6px_6px_0_0_#000]"
         >
           <div className="aspect-[4/5] w-full overflow-hidden">
-            <img src="/photo.jpeg" alt={personalInfo.name} className="h-full w-full object-cover" />
+            <img
+              src="/photo.jpeg"
+              alt={personalInfo.name}
+              width={800}
+              height={1000}
+              fetchPriority="high"
+              decoding="async"
+              className="h-full w-full object-cover"
+            />
           </div>
         </motion.div>
         <motion.div

@@ -1,13 +1,14 @@
-import { useEffect, useState } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import { navItems, personalInfo } from '../data/portfolioData'
 import { Check, Copy, Menu, Moon, Share2, Sun, X } from 'lucide-react'
-import { QRCodeSVG } from 'qrcode.react'
 import { FaFacebookF, FaLinkedinIn, FaTelegram, FaWhatsapp, FaXTwitter } from 'react-icons/fa6'
 
 type NavbarProps = {
   isDark: boolean
   onToggleTheme: () => void
 }
+
+const QRCodeSVG = lazy(() => import('qrcode.react').then((mod) => ({ default: mod.QRCodeSVG })))
 
 export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
   const [showBorder, setShowBorder] = useState(false)
@@ -205,12 +206,14 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
 
             <div className="mt-5 grid min-w-0 gap-5 md:mt-8 md:gap-8 lg:grid-cols-[360px_1fr]">
               <div className="mx-auto flex w-full max-w-[280px] items-center justify-center border-[4px] border-black bg-white p-3 shadow-[4px_4px_0_0_#000] md:max-w-none md:border-[5px] md:p-6 md:shadow-[6px_6px_0_0_#000]">
-                <div className="md:hidden">
-                  <QRCodeSVG value={portfolioUrl} size={200} level="H" includeMargin />
-                </div>
-                <div className="hidden md:block">
-                  <QRCodeSVG value={portfolioUrl} size={300} level="H" includeMargin />
-                </div>
+                <Suspense fallback={<div className="h-[200px] w-[200px] bg-zinc-100 md:h-[300px] md:w-[300px]" />}>
+                  <div className="md:hidden">
+                    <QRCodeSVG value={portfolioUrl} size={200} level="H" includeMargin />
+                  </div>
+                  <div className="hidden md:block">
+                    <QRCodeSVG value={portfolioUrl} size={300} level="H" includeMargin />
+                  </div>
+                </Suspense>
               </div>
 
               <div className="min-w-0 space-y-4 md:space-y-5">
