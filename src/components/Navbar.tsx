@@ -13,7 +13,7 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
   const [showBorder, setShowBorder] = useState(false)
   const [isShareOpen, setIsShareOpen] = useState(false)
   const [isCopied, setIsCopied] = useState(false)
-  const portfolioUrl = 'https://syahrirhamadhan.vercel.app/'
+  const portfolioUrl = 'https://bit.ly/ARICV'
   const encodedUrl = encodeURIComponent(portfolioUrl)
   const encodedText = encodeURIComponent(`Portfolio Syahri Rhamadhan - ${portfolioUrl}`)
   const shareLinks = [
