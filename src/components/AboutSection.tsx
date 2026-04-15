@@ -20,7 +20,7 @@ export function AboutSection() {
         About <span className="text-sky-500">Me</span>
       </h2>
       <div className="h-2 w-28 bg-emerald-400" />
-      <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="grid gap-8 xl:grid-cols-[1.1fr_0.9fr]">
         <div className="space-y-5 text-xl leading-relaxed text-slate-700 md:text-[1.7rem]">
           <p>
             Hi there! I&apos;m <span className="font-bold text-fuchsia-500">{personalInfo.name}</span>,

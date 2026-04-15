@@ -14,7 +14,7 @@ export function HeroSection() {
   const remainingName = personalInfo.name.replace(`${firstName} `, '')
 
   return (
-    <section className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+    <section className="grid items-center gap-10 xl:grid-cols-[1.1fr_0.9fr]">
       <motion.div
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}

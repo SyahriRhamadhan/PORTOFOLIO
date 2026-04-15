@@ -109,15 +109,15 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
   return (
     <>
       <nav
-        className={`fixed inset-x-0 top-0 z-40 bg-zinc-200/95 px-4 py-3 backdrop-blur md:px-8 ${
+        className={`fixed inset-x-0 top-0 z-40 bg-zinc-200/95 px-4 py-3 backdrop-blur md:px-6 xl:px-8 ${
           showBorder ? 'border-b-4 border-black' : ''
         }`}
       >
         <div className="flex w-full min-w-0 items-center justify-between gap-2 md:gap-4">
-          <a className="max-w-[38vw] truncate text-sm font-extrabold text-sky-500 sm:max-w-[50vw] sm:text-lg md:max-w-none md:text-[2rem]" href="#home">
+          <a className="max-w-[38vw] truncate text-sm font-extrabold text-sky-500 sm:max-w-[50vw] sm:text-lg md:max-w-[48vw] md:text-2xl xl:max-w-none xl:text-[2rem]" href="#home">
             {personalInfo.name.toUpperCase()}
           </a>
-          <div className="hidden flex-wrap justify-center gap-2 md:flex">
+          <div className="hidden flex-wrap justify-center gap-2 xl:flex">
             {navItems.map((item) => (
               <a
                 key={item}
@@ -149,7 +149,7 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
               type="button"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
               onClick={() => setIsMenuOpen((prev) => !prev)}
-              className="flex h-12 w-12 items-center justify-center border-[3px] border-black bg-zinc-100 shadow-[3px_3px_0_0_#000] transition hover:-translate-y-0.5 md:hidden"
+              className="flex h-12 w-12 items-center justify-center border-[3px] border-black bg-zinc-100 shadow-[3px_3px_0_0_#000] transition hover:-translate-y-0.5 xl:hidden"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -157,7 +157,7 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
         </div>
 
         {isMenuOpen ? (
-          <div className="mt-3 grid gap-2 border-t-[3px] border-black pt-3 md:hidden">
+          <div className="mt-3 grid gap-2 border-t-[3px] border-black pt-3 xl:hidden">
             {navItems.map((item) => (
               <a
                 key={item}
