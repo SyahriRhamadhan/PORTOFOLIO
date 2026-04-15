@@ -1,8 +1,31 @@
-import { CalendarDays, ExternalLink, ScrollText } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { CalendarDays, ExternalLink, ScrollText, X } from 'lucide-react'
 import { certificates } from '../data/portfolioData'
 import { motion } from 'framer-motion'
 
 export function CertificatesSection() {
+  const [preview, setPreview] = useState<{ title: string; imageUrl: string } | null>(null)
+
+  useEffect(() => {
+    if (!preview) {
+      return
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setPreview(null)
+      }
+    }
+
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [preview])
+
   return (
     <section id="certificates" className="scroll-mt-32 space-y-10">
       <div className="text-center">
@@ -42,7 +65,14 @@ export function CertificatesSection() {
             <div className="border-b-[4px] border-black p-4">
               <div className="flex h-44 items-center justify-center overflow-hidden border-[3px] border-black bg-zinc-100 p-3 shadow-[3px_3px_0_0_#000]">
                 {cert.imageUrl ? (
-                  <img src={cert.imageUrl} alt={cert.title} className="max-h-full max-w-full object-contain" />
+                  <button
+                    type="button"
+                    onClick={() => setPreview({ title: cert.title, imageUrl: cert.imageUrl! })}
+                    className="flex h-full w-full cursor-zoom-in items-center justify-center"
+                    aria-label={`Open ${cert.title} certificate preview`}
+                  >
+                    <img src={cert.imageUrl} alt={cert.title} className="max-h-full max-w-full object-contain" />
+                  </button>
                 ) : (
                   <ScrollText className="h-16 w-16 text-zinc-400" />
                 )}
@@ -82,6 +112,39 @@ export function CertificatesSection() {
           </motion.article>
         ))}
       </div>
+
+      {preview ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${preview.title} certificate preview`}
+          onClick={() => setPreview(null)}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 16 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="relative w-full max-w-5xl border-[4px] border-black bg-zinc-100 p-4 shadow-[8px_8px_0_0_#000]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="mb-3 flex items-center justify-between gap-4">
+              <h3 className="text-2xl font-black">{preview.title}</h3>
+              <button
+                type="button"
+                onClick={() => setPreview(null)}
+                className="flex h-11 w-11 items-center justify-center border-[3px] border-black bg-zinc-900 text-white shadow-[3px_3px_0_0_#000]"
+                aria-label="Close certificate preview"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            <div className="flex max-h-[78vh] items-center justify-center overflow-auto border-[3px] border-black bg-white p-4">
+              <img src={preview.imageUrl} alt={preview.title} className="max-h-[72vh] w-auto max-w-full object-contain" />
+            </div>
+          </motion.div>
+        </div>
+      ) : null}
     </section>
   )
 }

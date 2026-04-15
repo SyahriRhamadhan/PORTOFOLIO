@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AboutSection } from './components/AboutSection'
+import { AtsCvPage } from './components/AtsCvPage'
 import { BackToTopButton } from './components/BackToTopButton'
 import { CertificatesSection } from './components/CertificatesSection'
 import { ContactSection } from './components/ContactSection'
@@ -12,6 +13,7 @@ import { SkillsSection } from './components/SkillsSection'
 
 function App() {
   const [isDark, setIsDark] = useState(false)
+  const [currentHash, setCurrentHash] = useState(() => window.location.hash)
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem('portfolio-theme')
@@ -25,6 +27,19 @@ function App() {
   useEffect(() => {
     window.localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light')
   }, [isDark])
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash)
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
+
+  if (currentHash === '#cv') {
+    return <AtsCvPage />
+  }
 
   return (
     <div className={`antialiased ${isDark ? 'theme-dark bg-slate-950 text-slate-100' : 'bg-zinc-200 text-zinc-900'}`}>

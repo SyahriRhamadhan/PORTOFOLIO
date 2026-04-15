@@ -54,7 +54,7 @@ export function HeroSection() {
             View My Work
           </motion.a>
           <motion.a
-            href="#contact"
+            href="#cv"
             whileHover={{ y: -3, x: -1 }}
             transition={{ type: 'spring', stiffness: 320, damping: 18 }}
             className="inline-flex items-center gap-3 border-[3px] border-black bg-zinc-100 px-8 py-3 text-2xl font-bold shadow-[5px_5px_0_0_#000]"

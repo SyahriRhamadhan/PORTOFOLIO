@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap");
 @import "tailwindcss";
 
 html {
@@ -47,4 +48,47 @@ body {
 
 .theme-dark .bg-black {
   background-color: #020617 !important;
+}
+
+.cv-a4 {
+  width: min(210mm, 100%);
+  min-height: 297mm;
+  font-family: "IBM Plex Sans", ui-sans-serif, sans-serif;
+}
+
+.cv-a4 h1,
+.cv-a4 h2,
+.cv-a4 h3 {
+  font-family: "Space Grotesk", ui-sans-serif, sans-serif;
+}
+
+@page {
+  size: A4;
+  margin: 10mm;
+}
+
+@media print {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+  }
+
+  .cv-a4 {
+    width: 100%;
+    min-height: auto;
+  }
+
+  section,
+  article {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
 }
