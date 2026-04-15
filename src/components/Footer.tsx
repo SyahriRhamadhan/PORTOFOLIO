@@ -43,9 +43,16 @@ export function Footer() {
 
       <div className="my-8 h-px bg-slate-800" />
 
-      <p className="text-center text-2xl font-bold text-fuchsia-300 md:text-3xl [text-shadow:0_0_10px_rgba(232,121,249,0.75)]">
-        &quot;life sometimes needs a little surprise&quot; *
-      </p>
+      <div className="space-y-3 text-center">
+        <p className="text-xl font-bold text-fuchsia-300 md:text-2xl [text-shadow:0_0_10px_rgba(232,121,249,0.75)]">
+          &quot;A computer would deserve to be called intelligent if it could deceive a human into
+          believing that it was human.&quot;
+        </p>
+        <p className="text-sm text-slate-400 md:text-base">
+          Alan Turing (1950), on the Turing Test. Modern claims about passing the test remain
+          debated among experts.
+        </p>
+      </div>
     </footer>
   )
 }
