@@ -157,7 +157,7 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
                 </p>
                 <h2 className="mt-5 text-5xl font-black md:text-6xl">Share Syahri&apos;s Portfolio</h2>
                 <p className="mt-3 text-2xl leading-relaxed text-slate-600">
-                  Bagikan link portfolio atau scan QR code ini.
+                  Share this portfolio link or scan the QR code.
                 </p>
               </div>
               <button
