@@ -28,6 +28,7 @@ function getLinkedInLabel(linkedin: string) {
 
 function CvHeader({ data }: { data: Profile }) {
   const whatsappNumber = data.phone.replace(/^0/, '62')
+  const portfolioUrl = 'https://syahrirhamadhan.vercel.app/'
 
   return (
     <header className="pb-4">
@@ -53,6 +54,11 @@ function CvHeader({ data }: { data: Profile }) {
         <li>
           <a className="underline decoration-slate-400" href={data.github} target="_blank" rel="noreferrer">
             GitHub
+          </a>
+        </li>
+        <li>
+          <a className="underline decoration-slate-400" href={portfolioUrl} target="_blank" rel="noreferrer">
+            Portfolio: syahrirhamadhan.vercel.app
           </a>
         </li>
       </ul>
