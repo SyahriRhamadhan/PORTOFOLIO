@@ -74,7 +74,7 @@ p {
 
 @page {
   size: A4;
-  margin: 10mm;
+  margin: 14mm;
 }
 
 @media print {
@@ -88,6 +88,16 @@ p {
   .cv-a4 {
     width: 100%;
     min-height: auto;
+    box-sizing: border-box;
+    padding: 6mm 4mm;
+  }
+
+  .cv-a4 p,
+  .cv-a4 li,
+  .cv-a4 h1,
+  .cv-a4 h2,
+  .cv-a4 h3 {
+    overflow-wrap: anywhere;
   }
 
   section,
