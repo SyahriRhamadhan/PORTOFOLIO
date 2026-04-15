@@ -29,11 +29,13 @@ export function AboutSection() {
           </p>
           <p>
             I specialize in JavaScript, TypeScript, React, Node.js, Laravel, and SQL-based
-            systems with strong hands-on experience in API integration and role-based workflows.
+            systems with strong hands-on experience in API Design (RESTful integration),
+            performance monitoring, and role-based workflows.
           </p>
           <p>
-            My focus is delivering maintainable production-ready solutions and collaborating
-            effectively across teams.
+            My focus is delivering code quality through maintainable production-ready solutions,
+            unit testing with Jest on assigned tasks, clear technical documentation, and
+            effective collaboration across teams.
           </p>
           <div className="space-y-3 text-base font-bold md:text-lg">
             <p className="border-[3px] border-fuchsia-700 bg-fuchsia-100 px-5 py-3 text-fuchsia-900">

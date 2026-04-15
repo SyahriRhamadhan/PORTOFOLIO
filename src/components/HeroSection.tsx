@@ -6,7 +6,7 @@ import {
   Sparkles,
 } from 'lucide-react'
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6'
-import { personalInfo } from '../data/portfolioData'
+import { fitKeywords, personalInfo } from '../data/portfolioData'
 import { motion } from 'framer-motion'
 
 export function HeroSection() {
@@ -34,6 +34,16 @@ export function HeroSection() {
         <p className="max-w-2xl text-2xl leading-relaxed text-slate-700">
           {personalInfo.heroSummary}
         </p>
+        <div className="flex flex-wrap gap-3">
+          {fitKeywords.map((keyword) => (
+            <span
+              key={keyword}
+              className="border-2 border-black bg-zinc-100 px-3 py-2 text-sm font-bold shadow-[3px_3px_0_0_#000] md:text-base"
+            >
+              {keyword}
+            </span>
+          ))}
+        </div>
         <div className="flex mb-5 flex-wrap gap-8 text-[1.15rem] font-semibold">
           <p className="inline-flex items-center gap-2">
             <Mail className="h-5 w-5" />
