@@ -9,6 +9,16 @@ body {
   margin: 0;
   font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
   background: #e4e4e4;
+  overflow-x: hidden;
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.text-center p {
+  text-align: center;
 }
 
 .theme-dark {

@@ -106,6 +106,7 @@ export const projects: Project[] = [
   {
     name: 'Multi-Tenant Bimbel Platform',
     category: 'EDTECH PLATFORM',
+    previewImage: '/project/bimbel.png',
     description:
       'Multi-tenant learning platform with role-based access, online exam workflows, QR attendance, and real-time monitoring for education operations.',
     tags: ['Remix', 'Express', 'Prisma', 'MySQL', 'Redis', 'Socket.IO'],
@@ -124,6 +125,7 @@ export const projects: Project[] = [
   {
     name: 'EWIL Training Platform',
     category: 'TRAINING SYSTEM',
+    previewImage: '/project/ewil.png',
     description:
       'Training management application covering class enrollment, Midtrans payment flow, report approvals, role-based dashboards, and content modules.',
     tags: ['Laravel 12', 'React', 'Inertia.js', 'MySQL', 'Midtrans', 'Docker'],
@@ -142,6 +144,7 @@ export const projects: Project[] = [
   {
     name: 'GIS Report Management System',
     category: 'GIS WEB APP',
+    previewImage: '/project/gispuprp.png',
     description:
       'Geospatial report system with GeoJSON management, interactive map dashboards, PDF reporting, and structured region/category master data.',
     tags: ['Laravel 12', 'React 19', 'TypeScript', 'Inertia.js', 'Leaflet', 'PostgreSQL'],
@@ -160,6 +163,7 @@ export const projects: Project[] = [
   {
     name: 'Document Compliance Management System',
     category: 'ENTERPRISE APP',
+    previewImage: '/project/document.png',
     description:
       'Institutional document governance platform for assignment tracking, verification workflow, compliance reports, and audit log monitoring.',
     tags: ['Laravel 12', 'React', 'Inertia.js', 'MySQL', 'Tailwind', 'Fortify'],
@@ -178,6 +182,7 @@ export const projects: Project[] = [
   {
     name: 'Mortgage Titan SG',
     category: 'FINTECH WEB',
+    previewImage: '/project/morgage.png',
     description:
       'Mortgage advisory platform with rate comparison, calculators, lead funnel, content CMS, and reminder automation for refinance lifecycle.',
     tags: ['Next.js', 'React 19', 'Prisma', 'MySQL', 'Express', 'HubSpot API'],
@@ -214,6 +219,7 @@ export const projects: Project[] = [
   {
     name: 'SIPPRA (Dishub)',
     category: 'GOVERNMENT SYSTEM',
+    previewImage: '/project/sipra.png',
     description:
       'Port and retribution service platform with multi-role workflows, tariff management, service submissions, SKRD/STRD processing, and settlement modules.',
     tags: ['Next.js', 'Express', 'TypeScript', 'Prisma', 'PostgreSQL', 'Swagger'],
@@ -232,6 +238,7 @@ export const projects: Project[] = [
   {
     name: 'Sisusan (UMRAH Survey)',
     category: 'SURVEY SYSTEM',
+    previewImage: '/project/sisusan.png',
     description:
       'Survey satisfaction platform with token-based response submission, IKM analytics dashboard, and role-based management for institutional reporting.',
     tags: ['CodeIgniter 4', 'PHP', 'MySQL', 'Bootstrap', 'DataTables', 'Chart.js'],

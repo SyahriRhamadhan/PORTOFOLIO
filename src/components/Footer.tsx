@@ -8,8 +8,8 @@ export function Footer() {
     <footer className="relative mt-10 border-t-4 border-black bg-black px-6 py-10 text-zinc-100 md:px-10">
       <div className="flex flex-col gap-8 xl:flex-row xl:items-start xl:justify-between">
         <div>
-          <h3 className="text-5xl font-extrabold text-sky-500">{personalInfo.name.toUpperCase()}</h3>
-          <p className="mt-2 text-3xl text-zinc-300">{personalInfo.role}</p>
+          <h3 className="text-3xl font-extrabold text-sky-500 md:text-4xl">{personalInfo.name.toUpperCase()}</h3>
+          <p className="mt-2 text-lg text-zinc-300 md:text-xl">{personalInfo.role}</p>
         </div>
 
         <div className="flex gap-4">
@@ -34,16 +34,16 @@ export function Footer() {
         </div>
 
         <div className="text-left xl:text-right">
-          <p className="text-3xl">
+          <p className="text-2xl md:text-3xl">
             Made with <span className="text-red-400">&hearts;</span> &copy; {new Date().getFullYear()}
           </p>
-          <p className="mt-1 text-2xl text-slate-400">Built with React, TypeScript & Tailwind CSS</p>
+          <p className="mt-1 text-base text-slate-400 md:text-lg">Built with React, TypeScript & Tailwind CSS</p>
         </div>
       </div>
 
       <div className="my-8 h-px bg-slate-800" />
 
-      <p className="text-center text-4xl font-bold text-fuchsia-300 [text-shadow:0_0_10px_rgba(232,121,249,0.75)]">
+      <p className="text-center text-2xl font-bold text-fuchsia-300 md:text-3xl [text-shadow:0_0_10px_rgba(232,121,249,0.75)]">
         &quot;life sometimes needs a little surprise&quot; *
       </p>
     </footer>

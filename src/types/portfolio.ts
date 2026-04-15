@@ -18,6 +18,7 @@ export type Project = {
   category: string
   description: string
   tags: string[]
+  previewImage?: string
   theme: {
     preview: string
     titleBar: string

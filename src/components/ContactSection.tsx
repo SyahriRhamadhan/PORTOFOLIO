@@ -7,12 +7,12 @@ export function ContactSection() {
   return (
     <section id="contact" className="scroll-mt-32 space-y-10 pb-14">
       <div className="text-center">
-        <h2 className="text-6xl font-extrabold md:text-7xl">
+        <h2 className="text-4xl font-extrabold leading-tight md:text-7xl">
           Let&apos;s <span className="text-fuchsia-500">Build</span>{" "}
           <span className="text-sky-500">Something</span>{" "}
           <span className="text-emerald-500">Amazing</span>
         </h2>
-        <p className="mx-auto mt-3 max-w-4xl text-2xl leading-relaxed text-slate-600">
+        <p className="mx-auto mt-3 max-w-4xl text-base leading-relaxed text-slate-600 md:text-2xl">
           Have a project in mind? Want to collaborate? Drop me a message and
           let&apos;s create something impactful together.
         </p>
@@ -21,8 +21,8 @@ export function ContactSection() {
 
       <div className="grid gap-8 xl:grid-cols-[1fr_1fr]">
         <div className="space-y-6">
-          <h3 className="text-5xl font-black">Get In Touch</h3>
-          <p className="max-w-3xl text-2xl leading-relaxed text-slate-600">
+          <h3 className="text-3xl font-black md:text-5xl">Get In Touch</h3>
+          <p className="max-w-3xl text-lg leading-relaxed text-slate-600 md:text-2xl">
             I&apos;m always excited to work on new products and collaborate with
             amazing people. Let&apos;s start a conversation.
           </p>
@@ -31,46 +31,46 @@ export function ContactSection() {
             <motion.article
               whileHover={{ y: -3, x: -1 }}
               transition={{ type: "spring", stiffness: 280, damping: 20 }}
-              className="flex items-center gap-4"
+              className="flex min-w-0 items-center gap-4"
             >
               <div className="flex h-14 w-14 items-center justify-center border-[3px] border-black bg-fuchsia-400 shadow-[3px_3px_0_0_#000]">
                 <Mail className="h-7 w-7" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="text-lg font-bold text-slate-500">Email</p>
-                <p className="text-3xl font-black">{personalInfo.email}</p>
+                <p className="break-all text-lg font-black md:text-3xl">{personalInfo.email}</p>
               </div>
             </motion.article>
 
             <motion.article
               whileHover={{ y: -3, x: -1 }}
               transition={{ type: "spring", stiffness: 280, damping: 20 }}
-              className="flex items-center gap-4"
+              className="flex min-w-0 items-center gap-4"
             >
               <div className="flex h-14 w-14 items-center justify-center border-[3px] border-black bg-sky-400 shadow-[3px_3px_0_0_#000]">
                 <MapPin className="h-7 w-7" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="text-lg font-bold text-slate-500">Location</p>
-                <p className="text-3xl font-black">{personalInfo.location}</p>
+                <p className="break-words text-lg font-black md:text-3xl">{personalInfo.location}</p>
               </div>
             </motion.article>
 
             <motion.article
               whileHover={{ y: -3, x: -1 }}
               transition={{ type: "spring", stiffness: 280, damping: 20 }}
-              className="flex items-center gap-4"
+              className="flex min-w-0 items-center gap-4"
             >
               <div className="flex h-14 w-14 items-center justify-center border-[3px] border-black bg-emerald-400 shadow-[3px_3px_0_0_#000]">
                 <FaLinkedinIn className="h-6 w-6" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="text-lg font-bold text-slate-500">LinkedIn</p>
                 <motion.a
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-3xl font-black underline"
+                  className="text-lg font-black underline md:text-3xl"
                   whileHover={{ y: -1 }}
                 >
                   Connect with me
@@ -84,11 +84,11 @@ export function ContactSection() {
             transition={{ type: "spring", stiffness: 280, damping: 20 }}
             className="border-[4px] border-black bg-fuchsia-400 p-5 shadow-[4px_4px_0_0_#000]"
           >
-            <p className="inline-flex items-center gap-2 text-4xl font-black">
+            <p className="inline-flex items-center gap-2 text-2xl font-black md:text-4xl">
               <Lightbulb className="h-8 w-8 text-yellow-300" />
               Quick Response!
             </p>
-            <p className="mt-2 text-xl font-semibold">
+            <p className="mt-2 text-base font-semibold md:text-xl">
               I typically respond within 24 hours.
             </p>
           </motion.div>
@@ -99,14 +99,14 @@ export function ContactSection() {
           transition={{ type: "spring", stiffness: 280, damping: 20 }}
           className="border-[4px] border-black bg-zinc-100 p-6 shadow-[6px_6px_0_0_#000] md:p-8"
         >
-          <h3 className="text-5xl font-black">Send a Message</h3>
+          <h3 className="text-3xl font-black md:text-5xl">Send a Message</h3>
           <form className="mt-6 space-y-5">
             <label className="block">
               <span className="mb-2 block text-lg font-bold">Your Name *</span>
               <input
                 type="text"
                 placeholder="John Doe"
-                className="w-full border-2 border-black bg-zinc-100 px-4 py-3 text-xl outline-none focus:ring-4 focus:ring-sky-300"
+                className="w-full border-2 border-black bg-zinc-100 px-4 py-3 text-base outline-none focus:ring-4 focus:ring-sky-300 md:text-xl"
               />
             </label>
             <label className="block">
@@ -114,7 +114,7 @@ export function ContactSection() {
               <input
                 type="email"
                 placeholder="john@example.com"
-                className="w-full border-2 border-black bg-zinc-100 px-4 py-3 text-xl outline-none focus:ring-4 focus:ring-sky-300"
+                className="w-full border-2 border-black bg-zinc-100 px-4 py-3 text-base outline-none focus:ring-4 focus:ring-sky-300 md:text-xl"
               />
             </label>
             <label className="block">
@@ -124,7 +124,7 @@ export function ContactSection() {
               <textarea
                 placeholder="Tell me about your project or just say hello!"
                 rows={2}
-                className="w-full resize-y border-2 border-black bg-zinc-100 px-4 py-3 text-xl outline-none focus:ring-4 focus:ring-sky-300"
+                className="w-full resize-y border-2 border-black bg-zinc-100 px-4 py-3 text-base outline-none focus:ring-4 focus:ring-sky-300 md:text-xl"
               />
             </label>
             <div className="group relative">
@@ -132,7 +132,7 @@ export function ContactSection() {
                 type="button"
                 disabled
                 whileHover={{ y: -3, x: -1 }}
-                className="inline-flex w-full cursor-not-allowed items-center justify-center gap-2 border-[3px] border-black bg-sky-500 px-5 py-3 text-2xl font-black text-white opacity-90 shadow-[4px_4px_0_0_#000]"
+                className="inline-flex w-full cursor-not-allowed items-center justify-center gap-2 border-[3px] border-black bg-sky-500 px-5 py-3 text-lg font-black text-white opacity-90 shadow-[4px_4px_0_0_#000] md:text-2xl"
               >
                 <Send className="h-6 w-6" />
                 Send Message

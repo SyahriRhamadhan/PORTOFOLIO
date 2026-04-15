@@ -42,9 +42,9 @@ function App() {
   }
 
   return (
-    <div className={`antialiased ${isDark ? 'theme-dark bg-slate-950 text-slate-100' : 'bg-zinc-200 text-zinc-900'}`}>
+    <div className={`antialiased overflow-x-hidden ${isDark ? 'theme-dark bg-slate-950 text-slate-100' : 'bg-zinc-200 text-zinc-900'}`}>
       <Navbar isDark={isDark} onToggleTheme={() => setIsDark((prev) => !prev)} />
-      <main id="home" className="w-full space-y-20 px-6 py-10 md:px-10 md:py-14">
+      <main id="home" className="w-full space-y-20 px-6 pb-10 pt-24 md:px-10 md:pb-14 md:pt-28">
         <HeroSection />
         <AboutSection />
         <ExperienceSection />

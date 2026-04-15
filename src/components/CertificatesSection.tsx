@@ -29,10 +29,10 @@ export function CertificatesSection() {
   return (
     <section id="certificates" className="scroll-mt-32 space-y-10">
       <div className="text-center">
-        <h2 className="text-6xl font-extrabold md:text-7xl">
+        <h2 className="text-4xl font-extrabold leading-tight md:text-7xl">
           My <span className="text-fuchsia-500">Certifications</span>
         </h2>
-        <p className="mx-auto mt-3 max-w-4xl text-2xl leading-relaxed text-slate-600">
+        <p className="mx-auto mt-3 max-w-4xl text-lg leading-relaxed text-slate-600 md:text-2xl">
           Continuous learning journey through professional certifications.
         </p>
         <div className="mx-auto mt-4 h-2 w-28 bg-emerald-400" />
@@ -115,7 +115,7 @@ export function CertificatesSection() {
 
       {preview ? (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          className="fixed inset-0 z-50 overflow-y-auto bg-black/80 p-2 md:p-4"
           role="dialog"
           aria-modal="true"
           aria-label={`${preview.title} certificate preview`}
@@ -125,22 +125,22 @@ export function CertificatesSection() {
             initial={{ opacity: 0, scale: 0.95, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="relative w-full max-w-5xl border-[4px] border-black bg-zinc-100 p-4 shadow-[8px_8px_0_0_#000]"
+            className="relative mx-auto my-2 w-full max-w-[calc(100vw-0.75rem)] border-[4px] border-black bg-zinc-100 p-3 shadow-[6px_6px_0_0_#000] md:my-4 md:max-w-5xl md:p-4 md:shadow-[8px_8px_0_0_#000]"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="mb-3 flex items-center justify-between gap-4">
-              <h3 className="text-2xl font-black">{preview.title}</h3>
+            <div className="mb-2 flex items-center justify-between gap-3 md:mb-3 md:gap-4">
+              <h3 className="text-lg font-black leading-tight md:text-2xl">{preview.title}</h3>
               <button
                 type="button"
                 onClick={() => setPreview(null)}
-                className="flex h-11 w-11 items-center justify-center border-[3px] border-black bg-zinc-900 text-white shadow-[3px_3px_0_0_#000]"
+                className="flex h-10 w-10 items-center justify-center border-[3px] border-black bg-zinc-900 text-white shadow-[2px_2px_0_0_#000] md:h-11 md:w-11 md:shadow-[3px_3px_0_0_#000]"
                 aria-label="Close certificate preview"
               >
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5 md:h-6 md:w-6" />
               </button>
             </div>
-            <div className="flex max-h-[78vh] items-center justify-center overflow-auto border-[3px] border-black bg-white p-4">
-              <img src={preview.imageUrl} alt={preview.title} className="max-h-[72vh] w-auto max-w-full object-contain" />
+            <div className="flex max-h-[74vh] items-center justify-center overflow-auto border-[3px] border-black bg-white p-2 md:max-h-[78vh] md:p-4">
+              <img src={preview.imageUrl} alt={preview.title} className="max-h-[68vh] w-auto max-w-full object-contain md:max-h-[72vh]" />
             </div>
           </motion.div>
         </div>
