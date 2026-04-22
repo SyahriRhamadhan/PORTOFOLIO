@@ -6,6 +6,7 @@ import { ContactSection } from './components/ContactSection'
 import { ExperienceSection } from './components/ExperienceSection'
 import { Footer } from './components/Footer'
 import { HeroSection } from './components/HeroSection'
+import { NagoyaShowcasePage } from './components/NagoyaShowcasePage'
 import { Navbar } from './components/Navbar'
 import { ProjectsSection } from './components/ProjectsSection'
 import { SkillsSection } from './components/SkillsSection'
@@ -15,6 +16,14 @@ const AtsCvPage = lazy(() => import('./components/AtsCvPage').then((mod) => ({ d
 function App() {
   const [isDark, setIsDark] = useState(false)
   const [currentHash, setCurrentHash] = useState(() => window.location.hash)
+  const isNagoyaHash = currentHash.startsWith('#nagoya-')
+  const nagoyaNavLinks = [
+    { label: 'Overview', href: '#nagoya-hill' },
+    { label: 'ERP Scope', href: '#nagoya-erp-scope' },
+    { label: 'AI Scope', href: '#nagoya-ai-scope' },
+    { label: 'Project Evidence', href: '#nagoya-project-evidence' },
+    { label: 'Back Home', href: '#home' },
+  ]
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem('portfolio-theme')
@@ -43,6 +52,19 @@ function App() {
       <Suspense fallback={<div className="min-h-screen bg-zinc-200" />}>
         <AtsCvPage />
       </Suspense>
+    )
+  }
+
+  if (isNagoyaHash) {
+    return (
+      <div className={`antialiased overflow-x-hidden ${isDark ? 'theme-dark bg-slate-950 text-slate-100' : 'bg-zinc-200 text-zinc-900'}`}>
+        <Navbar isDark={isDark} onToggleTheme={() => setIsDark((prev) => !prev)} links={nagoyaNavLinks} />
+        <main className="w-full px-0 pb-10 pt-24 md:pb-14 md:pt-28">
+          <NagoyaShowcasePage />
+        </main>
+        <Footer />
+        <BackToTopButton />
+      </div>
     )
   }
 

@@ -14,7 +14,7 @@ export const experiences = [
   {
     company: "PT. Arus Digital Sinergi",
     position: "Software Developer (Web, Odoo, Sysadmin, System Analyst)",
-    period: "07/2024 - Current",
+    period: "07/2024 - 03/2026",
     techStack: [
       "Laravel 12",
       "React 19",

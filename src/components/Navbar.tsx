@@ -1,20 +1,28 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
 import { navItems, personalInfo } from '../data/portfolioData'
-import { Check, Copy, Menu, Moon, Share2, Sun, X } from 'lucide-react'
+import { Check, ChevronDown, Copy, House, Menu, Moon, Share2, Sun, X } from 'lucide-react'
 import { FaFacebookF, FaLinkedinIn, FaTelegram, FaWhatsapp, FaXTwitter } from 'react-icons/fa6'
 
 type NavbarProps = {
   isDark: boolean
   onToggleTheme: () => void
+  links?: Array<{ label: string; href: string }>
 }
 
 const QRCodeSVG = lazy(() => import('qrcode.react').then((mod) => ({ default: mod.QRCodeSVG })))
 
-export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
+const showcaseLinks = [
+  { label: 'Nagoya Hill Showcase', href: '#nagoya-hill' },
+  { label: 'ATS CV Page', href: '#cv' },
+]
+
+export function Navbar({ isDark, onToggleTheme, links }: NavbarProps) {
   const [showBorder, setShowBorder] = useState(false)
   const [isShareOpen, setIsShareOpen] = useState(false)
   const [isCopied, setIsCopied] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isShowcaseOpen, setIsShowcaseOpen] = useState(false)
+  const pageLinks = links ?? navItems.map((item) => ({ label: item, href: `#${item.toLowerCase()}` }))
   const portfolioUrl = 'https://bit.ly/ARICV'
   const encodedUrl = encodeURIComponent(portfolioUrl)
   const encodedText = encodeURIComponent(`Portfolio Syahri Rhamadhan - ${portfolioUrl}`)
@@ -61,6 +69,7 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
   useEffect(() => {
     const handleHashChange = () => {
       setIsMenuOpen(false)
+      setIsShowcaseOpen(false)
     }
 
     window.addEventListener('hashchange', handleHashChange)
@@ -118,15 +127,46 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
             {personalInfo.name.toUpperCase()}
           </a>
           <div className="hidden flex-wrap justify-center gap-2 xl:flex">
-            {navItems.map((item) => (
+            {pageLinks.map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.label}
+                href={item.href}
                 className="border-[3px] border-black bg-zinc-100 px-5 py-2 text-xl font-bold shadow-[3px_3px_0_0_#000] transition hover:-translate-y-0.5"
               >
-                {item}
+                {item.label === 'Back Home' ? (
+                  <span className="inline-flex items-center gap-2">
+                    <House className="h-5 w-5" />
+                    {item.label}
+                  </span>
+                ) : (
+                  item.label
+                )}
               </a>
             ))}
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setIsShowcaseOpen((prev) => !prev)}
+                className="inline-flex items-center gap-2 border-[3px] border-black bg-yellow-300 px-5 py-2 text-xl font-bold shadow-[3px_3px_0_0_#000] transition hover:-translate-y-0.5"
+              >
+                Showcase
+                <ChevronDown className={`h-5 w-5 transition ${isShowcaseOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isShowcaseOpen ? (
+                <div className="absolute right-0 top-full z-50 mt-2 w-72 space-y-2 border-[3px] border-black bg-zinc-100 p-2 shadow-[4px_4px_0_0_#000]">
+                  {showcaseLinks.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setIsShowcaseOpen(false)}
+                      className="block border-[3px] border-black bg-white px-3 py-2 text-base font-bold shadow-[3px_3px_0_0_#000]"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              ) : null}
+            </div>
           </div>
           <div className="flex items-center gap-2 md:gap-3">
             <button
@@ -158,16 +198,48 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
 
         {isMenuOpen ? (
           <div className="mt-3 grid gap-2 border-t-[3px] border-black pt-3 xl:hidden">
-            {navItems.map((item) => (
+            {pageLinks.map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.label}
+                href={item.href}
                 className="border-[3px] border-black bg-zinc-100 px-4 py-2 text-base font-bold shadow-[3px_3px_0_0_#000]"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {item}
+                {item.label === 'Back Home' ? (
+                  <span className="inline-flex items-center gap-2">
+                    <House className="h-4 w-4" />
+                    {item.label}
+                  </span>
+                ) : (
+                  item.label
+                )}
               </a>
             ))}
+            <button
+              type="button"
+              onClick={() => setIsShowcaseOpen((prev) => !prev)}
+              className="flex items-center justify-between border-[3px] border-black bg-yellow-300 px-4 py-2 text-base font-bold shadow-[3px_3px_0_0_#000]"
+            >
+              Showcase
+              <ChevronDown className={`h-5 w-5 transition ${isShowcaseOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {isShowcaseOpen ? (
+              <div className="grid gap-2">
+                {showcaseLinks.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="border-[3px] border-black bg-zinc-100 px-4 py-2 text-base font-bold shadow-[3px_3px_0_0_#000]"
+                    onClick={() => {
+                      setIsShowcaseOpen(false)
+                      setIsMenuOpen(false)
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            ) : null}
           </div>
         ) : null}
       </nav>
