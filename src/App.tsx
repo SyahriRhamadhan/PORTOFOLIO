@@ -27,6 +27,10 @@ function App() {
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem('portfolio-theme')
+    if (window.location.hash.startsWith('#nagoya-')) {
+      setIsDark(false)
+      return
+    }
     if (savedTheme === 'dark') {
       setIsDark(true)
       return
@@ -37,6 +41,12 @@ function App() {
   useEffect(() => {
     window.localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light')
   }, [isDark])
+
+  useEffect(() => {
+    if (isNagoyaHash) {
+      setIsDark(false)
+    }
+  }, [isNagoyaHash])
 
   useEffect(() => {
     const handleHashChange = () => {
