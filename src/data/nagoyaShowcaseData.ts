@@ -373,6 +373,9 @@ export const textCopy = {
       "The points below are based on initial assumptions after the interview and will be validated again during detailed requirement workshops.",
     aiTitle: "After-Hours AI Scope (OpenAI/Gemini)",
     projectTitle: "Project Evidence by Module Section",
+    landingPageCta: "Open Apartment Landing Showcase",
+    landingPageNote:
+      "See the modern apartment landing page concept with 360 demo and mini e-commerce flow.",
     totalRoles: "Total Roles",
     mainFeatures: "Main Features",
     relevance: "Relevance to Nagoya Hill",
@@ -394,6 +397,9 @@ export const textCopy = {
       "Poin di bawah ini berbasis asumsi awal setelah interview dan akan divalidasi kembali pada workshop requirement detail.",
     aiTitle: "Cakupan AI di Luar Jam Operasional (OpenAI/Gemini)",
     projectTitle: "Bukti Project per Section Modul",
+    landingPageCta: "Buka Landing Page Showcase Apartemen",
+    landingPageNote:
+      "Lihat konsep landing page apartemen modern dengan demo 360 dan alur mini e-commerce.",
     totalRoles: "Total Role",
     mainFeatures: "Fitur Utama",
     relevance: "Relevansi untuk Nagoya Hill",

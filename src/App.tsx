@@ -1,11 +1,14 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
 import { AboutSection } from './components/AboutSection'
+import { ApartmentLandingFooter } from './components/ApartmentLandingFooter'
+import { ApartmentLandingNavbar } from './components/ApartmentLandingNavbar'
 import { BackToTopButton } from './components/BackToTopButton'
 import { CertificatesSection } from './components/CertificatesSection'
 import { ContactSection } from './components/ContactSection'
 import { ExperienceSection } from './components/ExperienceSection'
 import { Footer } from './components/Footer'
 import { HeroSection } from './components/HeroSection'
+import { ApartmentLandingPage } from './components/ApartmentLandingPage'
 import { NagoyaShowcasePage } from './components/NagoyaShowcasePage'
 import { Navbar } from './components/Navbar'
 import { ProjectsSection } from './components/ProjectsSection'
@@ -17,6 +20,7 @@ function App() {
   const [isDark, setIsDark] = useState(false)
   const [currentHash, setCurrentHash] = useState(() => window.location.hash)
   const isNagoyaHash = currentHash.startsWith('#nagoya-')
+  const isApartmentHash = currentHash.startsWith('#apartment-')
   const nagoyaNavLinks = [
     { label: 'Overview', href: '#nagoya-hill' },
     { label: 'ERP Scope', href: '#nagoya-erp-scope' },
@@ -24,10 +28,18 @@ function App() {
     { label: 'Project Evidence', href: '#nagoya-project-evidence' },
     { label: 'Back Home', href: '#home' },
   ]
+  const apartmentNavLinks = [
+    { label: 'Overview', href: '#apartment-living' },
+    { label: 'Unit Types', href: '#apartment-unit-types' },
+    { label: '360 Demo', href: '#apartment-demo' },
+    { label: 'Mini Commerce', href: '#apartment-commerce' },
+    { label: 'Contact', href: '#apartment-contact' },
+    { label: 'Back Home', href: '#home' },
+  ]
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem('portfolio-theme')
-    if (window.location.hash.startsWith('#nagoya-')) {
+    if (window.location.hash.startsWith('#nagoya-') || window.location.hash.startsWith('#apartment-')) {
       setIsDark(false)
       return
     }
@@ -43,10 +55,10 @@ function App() {
   }, [isDark])
 
   useEffect(() => {
-    if (isNagoyaHash) {
+    if (isNagoyaHash || isApartmentHash) {
       setIsDark(false)
     }
-  }, [isNagoyaHash])
+  }, [isApartmentHash, isNagoyaHash])
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -73,6 +85,19 @@ function App() {
           <NagoyaShowcasePage />
         </main>
         <Footer />
+        <BackToTopButton />
+      </div>
+    )
+  }
+
+  if (isApartmentHash) {
+    return (
+      <div className="antialiased overflow-x-hidden bg-[#f4efe7] text-[#221f1a]">
+        <ApartmentLandingNavbar links={apartmentNavLinks} />
+        <main className="w-full px-0 pb-0 pt-0">
+          <ApartmentLandingPage />
+        </main>
+        <ApartmentLandingFooter />
         <BackToTopButton />
       </div>
     )

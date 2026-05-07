@@ -86,6 +86,18 @@ export function NagoyaShowcasePage() {
           <p className="text-base leading-relaxed text-zinc-700 md:text-lg">
             {content.summary}
           </p>
+          <div className="flex flex-col gap-3 pt-2 md:flex-row md:items-center">
+            <motion.a
+              href="#apartment-living"
+              {...buttonMotion}
+              className="inline-flex w-fit items-center justify-center border-[3px] border-black bg-sky-300 px-4 py-2 text-sm font-black uppercase shadow-[4px_4px_0_0_#000] md:text-base"
+            >
+              {content.landingPageCta}
+            </motion.a>
+            <p className="text-sm font-semibold leading-relaxed text-zinc-600 md:max-w-xl">
+              {content.landingPageNote}
+            </p>
+          </div>
           <p className="text-sm font-semibold text-zinc-600">{content.share}</p>
         </header>
 
