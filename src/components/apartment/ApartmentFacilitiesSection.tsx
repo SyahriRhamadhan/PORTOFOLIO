@@ -8,10 +8,10 @@ export function ApartmentFacilitiesSection() {
       <motion.div {...fadeUp} className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="text-sm uppercase tracking-[0.26em] text-[#8b7d67]">Facilities and amenities</p>
-          <h2 className="mt-3 font-['Georgia'] text-4xl md:text-5xl">A more composed everyday environment.</h2>
+          <h2 className="mt-3 font-['Georgia'] text-4xl md:text-5xl">All luxury facilities.</h2>
         </div>
         <p className="max-w-xl text-sm leading-7 text-[#5d5246]">
-          The visual language here should feel architectural and calm, not like a dashboard. Larger imagery leads; utility details support.
+          Nagoya Hill Condominium provides not only a unit for living, but also luxury facilities intended to complete the experience of modern living in the superblock environment.
         </p>
       </motion.div>
       <div className="grid gap-6 lg:grid-cols-3">

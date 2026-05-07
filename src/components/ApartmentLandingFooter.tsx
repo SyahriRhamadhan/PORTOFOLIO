@@ -6,10 +6,10 @@ export function ApartmentLandingFooter() {
     <footer className="border-t border-[#7d6b52]/15 bg-[#1f1a14] px-6 py-12 text-[#efe4d5] md:px-10">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr_0.9fr]">
         <div>
-          <p className="text-xs uppercase tracking-[0.28em] text-[#c5b49b]">Apartment Landing Showcase</p>
-          <h3 className="mt-3 font-['Georgia'] text-4xl">Modern living, presented with calm precision.</h3>
+          <p className="text-xs uppercase tracking-[0.28em] text-[#c5b49b]">Developed by</p>
+          <h3 className="mt-3 font-['Georgia'] text-4xl">Nagoya Hill Condominium</h3>
           <p className="mt-4 max-w-xl text-sm leading-7 text-[#d7cab8]">
-            A showcase concept for residential sales, remote buyer screening, and assisted mini-commerce flow around unit exploration and move-in services.
+            Marketing Gallery & Show Unit located at Nagoya Hill Shopping Mall, supporting property inquiry, physical viewing, and remote-first showcase flow in this dummy project.
           </p>
         </div>
 
@@ -43,8 +43,8 @@ export function ApartmentLandingFooter() {
       </div>
 
       <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/8 pt-6 text-sm text-[#bcae9b] md:flex-row md:items-center md:justify-between">
-        <p>Showcase route: `#apartment-living`</p>
-        <p>Built as a separate visual system from the main portfolio pages.</p>
+        <p>Marketing Gallery & Show Unit at Nagoya Hill Shopping Mall</p>
+        <p>Dummy showcase route: `#apartment-living`</p>
       </div>
     </footer>
   )

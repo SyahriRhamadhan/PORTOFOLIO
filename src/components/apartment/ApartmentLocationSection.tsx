@@ -3,10 +3,10 @@ import { MapPinned } from 'lucide-react'
 import { fadeUp } from './apartmentMotion'
 
 const locationItems = [
-  ['Local convenience', 'Close to shopping, dining, and daily-needs traffic for end-user appeal.'],
-  ['Domestic investor angle', 'A suitable product for second-home positioning and practical short-stay use.'],
-  ['Singapore market fit', 'Useful for cross-border professionals needing a predictable urban base in Batam.'],
-  ['Remote-first screening', '360 previews and walk-in demos reduce the need for early-stage physical filtering.'],
+  ['Ultimate Address', 'Nagoya Hill Condominium will soon be the most sought-after residential in Batam, located in the heart of the action in Nagoya Hill Superblock Area.'],
+  ['Marketing Gallery', 'Located at Nagoya Hill Shopping Mall, giving prospects a clear physical point of contact for viewing and inquiry.'],
+  ['Strategic Reach', 'Positioned in Lubuk Baja, Batam, with strong access to shopping, hospitality, and central city movement.'],
+  ['Remote Support', 'The dummy landing page extends the official positioning with 360 demo and remote-first screening support.'],
 ] as const
 
 export function ApartmentLocationSection() {
@@ -14,7 +14,7 @@ export function ApartmentLocationSection() {
     <motion.section {...fadeUp} className="grid gap-8 rounded-[2rem] border border-[#7d6b52]/15 bg-[#e8dcc8] px-6 py-8 md:px-10 lg:grid-cols-[0.9fr_1.1fr]">
       <div>
         <p className="text-sm uppercase tracking-[0.26em] text-[#7b6d59]">Location and reach</p>
-        <h2 className="mt-3 font-['Georgia'] text-4xl md:text-5xl">Positioned for local life and regional movement.</h2>
+        <h2 className="mt-3 font-['Georgia'] text-4xl md:text-5xl">Ultimate address for the fortunate few.</h2>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         {locationItems.map(([title, body]) => (

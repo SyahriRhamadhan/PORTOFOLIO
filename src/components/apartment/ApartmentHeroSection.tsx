@@ -55,9 +55,9 @@ export function ApartmentHeroSection({ language, onOpenDemo }: ApartmentHeroSect
                 {...cardHover}
                 className="flex min-h-[188px] flex-col rounded-[1.75rem] border border-[#7a6a52]/15 bg-white/72 p-6 shadow-[0_20px_60px_-36px_rgba(43,33,21,0.55)] backdrop-blur"
               >
-                <p className="text-[11px] uppercase tracking-[0.24em] text-[#7f735f]">{language === 'id' ? item.labelId : item.label}</p>
+                <p className="text-left text-[11px] uppercase tracking-[0.24em] text-[#7f735f]">{language === 'id' ? item.labelId : item.label}</p>
                 <p className="mt-4 font-['Georgia'] text-[2.45rem] leading-[0.95] text-[#2a241d]">{item.value}</p>
-                <p className="mt-4 max-w-[22ch] text-sm leading-7 text-[#5e5447]">{language === 'id' ? item.noteId : item.note}</p>
+                <p className="mt-4 max-w-[22ch] text-left text-sm leading-7 text-[#5e5447]">{language === 'id' ? item.noteId : item.note}</p>
               </motion.div>
             ))}
           </div>

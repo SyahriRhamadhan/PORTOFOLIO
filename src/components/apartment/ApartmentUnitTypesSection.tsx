@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { BedDouble, Building2, Check } from 'lucide-react'
+import { BedDouble, Building2, Check, ChevronLeft, ChevronRight } from 'lucide-react'
 import { apartmentTextCopy, apartmentUnitTypes, type ApartmentLanguage, type UnitType } from '../../data/apartmentLandingData'
 import { buttonHover, cardHover, fadeUp } from './apartmentMotion'
 
@@ -10,6 +11,15 @@ type ApartmentUnitTypesSectionProps = {
 
 export function ApartmentUnitTypesSection({ language, onSelectUnit }: ApartmentUnitTypesSectionProps) {
   const common = apartmentTextCopy[language].common
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const handlePrev = () => {
+    setActiveIndex((current) => (current === 0 ? apartmentUnitTypes.length - 1 : current - 1))
+  }
+
+  const handleNext = () => {
+    setActiveIndex((current) => (current === apartmentUnitTypes.length - 1 ? 0 : current + 1))
+  }
 
   return (
     <section id="apartment-unit-types" className="space-y-8">
@@ -27,17 +37,55 @@ export function ApartmentUnitTypesSection({ language, onSelectUnit }: ApartmentU
         </p>
       </motion.div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        {apartmentUnitTypes.map((unit) => (
+      <motion.div {...fadeUp} className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          {apartmentUnitTypes.map((unit, index) => (
+            <button
+              key={unit.id}
+              type="button"
+              onClick={() => setActiveIndex(index)}
+              className={`h-2.5 rounded-full transition ${index === activeIndex ? 'w-10 bg-[#2b241c]' : 'w-2.5 bg-[#cdbba3]'}`}
+              aria-label={`${language === 'id' ? 'Buka slide' : 'Open slide'} ${index + 1}`}
+            />
+          ))}
+        </div>
+        <div className="flex items-center gap-2">
+          <motion.button
+            type="button"
+            onClick={handlePrev}
+            {...buttonHover}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#7d6b52]/20 bg-white text-[#2a241d] shadow-[0_18px_35px_-28px_rgba(20,15,10,0.32)]"
+            aria-label={language === 'id' ? 'Slide sebelumnya' : 'Previous slide'}
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </motion.button>
+          <motion.button
+            type="button"
+            onClick={handleNext}
+            {...buttonHover}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#7d6b52]/20 bg-white text-[#2a241d] shadow-[0_18px_35px_-28px_rgba(20,15,10,0.32)]"
+            aria-label={language === 'id' ? 'Slide berikutnya' : 'Next slide'}
+          >
+            <ChevronRight className="h-5 w-5" />
+          </motion.button>
+        </div>
+      </motion.div>
+
+      <div className="overflow-hidden">
+        <motion.div
+          className="flex"
+          animate={{ x: `-${activeIndex * 100}%` }}
+          transition={{ type: 'spring', stiffness: 220, damping: 26 }}
+        >
+          {apartmentUnitTypes.map((unit) => (
+            <div key={unit.id} className="w-full shrink-0 pr-0">
           <motion.article
-            key={unit.id}
-            {...fadeUp}
             whileHover={cardHover.whileHover}
             transition={cardHover.transition}
-            className="overflow-hidden rounded-[2rem] border border-[#7d6b52]/15 bg-white shadow-[0_30px_70px_-48px_rgba(20,15,10,0.6)]"
+                className="mx-auto max-w-4xl overflow-hidden rounded-[2rem] border border-[#7d6b52]/15 bg-white shadow-[0_30px_70px_-48px_rgba(20,15,10,0.6)] lg:grid lg:grid-cols-[1.05fr_0.95fr]"
           >
-            <img src={unit.image} alt={unit.name} className="h-72 w-full object-cover" />
-            <div className="flex min-h-[430px] flex-col p-6">
+                <img src={unit.image} alt={unit.name} className="h-72 w-full object-cover lg:h-full lg:min-h-[520px]" />
+                <div className="flex min-h-[430px] flex-col p-6 lg:p-8">
               <div className="flex min-h-[104px] items-start justify-between gap-3">
                 <div>
                   <p className="text-xs uppercase tracking-[0.24em] text-[#8b7d67]">{language === 'id' ? unit.availabilityId : unit.availability}</p>
@@ -83,7 +131,9 @@ export function ApartmentUnitTypesSection({ language, onSelectUnit }: ApartmentU
               </div>
             </div>
           </motion.article>
-        ))}
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )

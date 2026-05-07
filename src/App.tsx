@@ -105,7 +105,6 @@ function App() {
           <ApartmentLandingPage language={apartmentLanguage} />
         </main>
         <ApartmentLandingFooter />
-        {currentHash !== '#apartment-contact' ? <BackToTopButton /> : null}
       </div>
     )
   }
