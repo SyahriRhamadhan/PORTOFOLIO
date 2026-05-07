@@ -97,6 +97,12 @@ export type ApartmentContactConfig = {
   salesLocationLabel: string
 }
 
+export type ApartmentChatMessage = {
+  id: string
+  role: 'assistant' | 'user'
+  text: string
+}
+
 export const apartmentNavItems: ApartmentNavItem[] = [
   { label: 'Overview', href: '#apartment-living' },
   { label: 'Unit Types', href: '#apartment-unit-types' },
@@ -408,4 +414,21 @@ export const apartmentContactConfig: ApartmentContactConfig = {
   brochureLabel: 'Nagoya Living Brochure',
   salesPhoneLabel: 'Sales consultation and private viewing by appointment',
   salesLocationLabel: 'Batam, Indonesia',
+}
+
+export const apartmentChatSeeds = {
+  en: [
+    {
+      id: 'welcome-en',
+      role: 'assistant' as const,
+      text: 'Hello, I am the after-hours AI assistant demo. Ask about unit types, remote viewing, brochure, or move-in services.',
+    },
+  ],
+  id: [
+    {
+      id: 'welcome-id',
+      role: 'assistant' as const,
+      text: 'Halo, saya demo asisten AI di luar jam operasional. Tanyakan tentang tipe unit, remote viewing, brosur, atau layanan move-in.',
+    },
+  ],
 }

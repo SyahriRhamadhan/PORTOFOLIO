@@ -23,6 +23,7 @@ Progress sudah masuk fase implementasi lanjutan. Halaman React untuk `#apartment
 - Contact/CTA config mulai dipindah ke data source
 - Product modal dan sticky mobile bar sudah dipisah
 - CTA contact utama mulai baca dari config terpusat
+- Dummy AI chatbot widget untuk after-hours assistant demo
 
 ## Scope yang Sudah Ter-cover
 
@@ -74,6 +75,19 @@ Progress sudah masuk fase implementasi lanjutan. Halaman React untuk `#apartment
 - Success state submit dasar
 - Tombol lanjutan ke WhatsApp dengan pesan inquiry otomatis
 
+### 9. Dummy AI assistant
+
+- Floating chat widget khusus halaman apartemen
+- Response dummy berbasis keyword untuk:
+  - unit inquiry
+  - remote viewing / 360 demo
+  - brochure
+  - visit booking
+  - mini-commerce / move-in service
+- Sudah support `EN/ID` untuk seed prompt dan balasan dasar
+- Quick action chips untuk intent utama
+- Auto-scroll ke section relevan berdasarkan intent chatbot
+
 ### 8. Brochure flow
 
 - Form brochure request dengan lead capture
@@ -124,3 +138,4 @@ Progress sudah masuk fase implementasi lanjutan. Halaman React untuk `#apartment
 - Tambahkan distribusi file brochure yang sebenarnya setelah submit
 - Pindahkan block `Why this residence` terakhir agar page container makin tipis
 - Lengkapi semua CTA dengan nomor sales final dan channel produksi nyata
+- Jika diperlukan, lanjutkan dummy chatbot ke skenario intent routing yang lebih kaya atau integrasi AI sungguhan

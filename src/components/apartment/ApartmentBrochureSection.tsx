@@ -22,7 +22,11 @@ export function ApartmentBrochureSection({
   onSubmit,
 }: ApartmentBrochureSectionProps) {
   return (
-    <motion.section {...fadeUp} className="grid gap-8 rounded-[2rem] border border-[#7d6b52]/15 bg-white px-6 py-8 shadow-[0_24px_60px_-44px_rgba(22,16,11,0.5)] md:px-8 lg:grid-cols-[0.85fr_1.15fr]">
+    <motion.section
+      {...fadeUp}
+      id="apartment-brochure"
+      className="grid gap-8 rounded-[2rem] border border-[#7d6b52]/15 bg-white px-6 py-8 shadow-[0_24px_60px_-44px_rgba(22,16,11,0.5)] md:px-8 lg:grid-cols-[0.85fr_1.15fr]"
+    >
       <div>
         <p className="text-sm uppercase tracking-[0.26em] text-[#8b7d67]">Brochure flow</p>
         <h2 className="mt-3 font-['Georgia'] text-4xl md:text-5xl">Capture brochure demand without breaking the premium tone.</h2>

@@ -11,6 +11,7 @@ import {
   type UnitType,
 } from '../data/apartmentLandingData'
 import { ApartmentBrochureSection } from './apartment/ApartmentBrochureSection'
+import { ApartmentAiChatWidget } from './apartment/ApartmentAiChatWidget'
 import { ApartmentDemoSection } from './apartment/ApartmentDemoSection'
 import { ApartmentDemoViewerModal } from './apartment/ApartmentDemoViewerModal'
 import { ApartmentFaqSection } from './apartment/ApartmentFaqSection'
@@ -179,6 +180,7 @@ export function ApartmentLandingPage({ language }: ApartmentLandingPageProps) {
       </main>
 
       <ApartmentStickyMobileBar salesWhatsAppUrl={apartmentContactConfig.salesWhatsAppUrl} />
+      <ApartmentAiChatWidget language={language} />
 
       {selectedUnit ? <ApartmentUnitModal unit={selectedUnit} onClose={() => setSelectedUnit(null)} /> : null}
 
