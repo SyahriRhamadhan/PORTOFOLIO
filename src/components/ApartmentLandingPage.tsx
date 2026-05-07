@@ -4,6 +4,8 @@ import {
   apartmentContactConfig,
   apartmentCommerceProducts,
   apartmentDemos,
+  apartmentTextCopy,
+  type ApartmentLanguage,
   type CommerceCategory,
   type CommerceProduct,
   type UnitType,
@@ -24,7 +26,11 @@ import { ApartmentTestimonialsSection } from './apartment/ApartmentTestimonialsS
 import { ApartmentUnitModal } from './apartment/ApartmentUnitModal'
 import { ApartmentUnitTypesSection } from './apartment/ApartmentUnitTypesSection'
 
-export function ApartmentLandingPage() {
+type ApartmentLandingPageProps = {
+  language: ApartmentLanguage
+}
+
+export function ApartmentLandingPage({ language }: ApartmentLandingPageProps) {
   const [activeCategory, setActiveCategory] = useState<CommerceCategory | 'All'>('All')
   const [cart, setCart] = useState<CommerceProduct[]>([])
   const [selectedDemoId, setSelectedDemoId] = useState(apartmentDemos[0]?.id ?? '')
@@ -54,6 +60,7 @@ export function ApartmentLandingPage() {
   }, [activeCategory])
 
   const selectedDemo = apartmentDemos.find((item) => item.id === selectedDemoId) ?? apartmentDemos[0]
+  const copy = apartmentTextCopy[language]
 
   const handleAddToCart = (product: CommerceProduct) => {
     setCart((current) => [...current, product])
@@ -111,21 +118,16 @@ export function ApartmentLandingPage() {
 
   return (
     <div className="min-h-screen bg-[#f4efe7] text-[#221f1a]">
-      <ApartmentHeroSection onOpenDemo={() => setIsDemoViewerOpen(true)} />
+      <ApartmentHeroSection language={language} onOpenDemo={() => setIsDemoViewerOpen(true)} />
 
       <main className="mx-auto max-w-7xl space-y-24 px-6 py-16 md:px-10 lg:px-12">
         <motion.section {...fadeUp} className="grid gap-6 lg:grid-cols-[0.75fr_1.25fr]">
           <div>
-            <p className="text-sm uppercase tracking-[0.26em] text-[#8b7d67]">Why this residence</p>
-            <h2 className="mt-3 font-['Georgia'] text-4xl leading-tight md:text-5xl">A residential landing page with hospitality-grade clarity.</h2>
+            <p className="text-sm uppercase tracking-[0.26em] text-[#8b7d67]">{copy.why.eyebrow}</p>
+            <h2 className="mt-3 font-['Georgia'] text-4xl leading-tight md:text-5xl">{copy.why.title}</h2>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              'Built for both local buyers and Singapore-based prospects who need remote-first screening.',
-              'Lifestyle framing stays aspirational, while the information architecture stays conversion-oriented.',
-              'Photo sphere and walk-in demos reduce friction before an onsite visit.',
-              'Mini commerce turns the page into a light commercial layer for move-in services and amenity add-ons.',
-            ].map((item) => (
+            {copy.why.points.map((item) => (
               <div key={item} className="rounded-[1.5rem] border border-[#7d6b52]/15 bg-white px-5 py-5 text-sm leading-7 text-[#544838] shadow-[0_22px_55px_-42px_rgba(32,24,18,0.42)]">
                 {item}
               </div>
@@ -133,7 +135,7 @@ export function ApartmentLandingPage() {
           </div>
         </motion.section>
 
-        <ApartmentUnitTypesSection onSelectUnit={setSelectedUnit} />
+        <ApartmentUnitTypesSection language={language} onSelectUnit={setSelectedUnit} />
 
         <ApartmentDemoSection
           selectedDemoId={selectedDemoId}
