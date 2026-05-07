@@ -68,6 +68,8 @@ export type ApartmentContactConfig = {
   remoteViewingWhatsAppUrl: string
   salesEmail: string
   brochureLabel: string
+  salesPhoneLabel: string
+  salesLocationLabel: string
 }
 
 export const apartmentNavItems: ApartmentNavItem[] = [
@@ -243,4 +245,6 @@ export const apartmentContactConfig: ApartmentContactConfig = {
   remoteViewingWhatsAppUrl: 'https://wa.me/',
   salesEmail: 'sales@example.com',
   brochureLabel: 'Nagoya Living Brochure',
+  salesPhoneLabel: 'Sales consultation and private viewing by appointment',
+  salesLocationLabel: 'Batam, Indonesia',
 }

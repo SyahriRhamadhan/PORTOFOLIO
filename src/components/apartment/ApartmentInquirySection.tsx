@@ -15,6 +15,7 @@ type ApartmentInquirySectionProps = {
   isInquirySubmitted: boolean
   inquiryForm: InquiryFormState
   whatsappHref: string
+  salesWhatsAppUrl: string
   onOpenDemo: () => void
   onChange: (field: keyof InquiryFormState, value: string) => void
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void
@@ -24,6 +25,7 @@ export function ApartmentInquirySection({
   isInquirySubmitted,
   inquiryForm,
   whatsappHref,
+  salesWhatsAppUrl,
   onOpenDemo,
   onChange,
   onSubmit,
@@ -42,7 +44,7 @@ export function ApartmentInquirySection({
             The last section should not feel like a generic form dump. It should close the narrative with confidence and give the user a fast next step whether they are in Batam, Jakarta, Singapore, or elsewhere.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href="https://wa.me/" target="_blank" rel="noreferrer" className="rounded-full bg-[#f0dfc6] px-5 py-3 text-sm font-semibold text-[#271f17]">
+            <a href={salesWhatsAppUrl} target="_blank" rel="noreferrer" className="rounded-full bg-[#f0dfc6] px-5 py-3 text-sm font-semibold text-[#271f17]">
               Talk to Sales
             </a>
             <button

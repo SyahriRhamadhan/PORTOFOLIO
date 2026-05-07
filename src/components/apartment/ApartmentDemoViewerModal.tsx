@@ -3,10 +3,11 @@ import { type DemoExperience } from '../../data/apartmentLandingData'
 
 type ApartmentDemoViewerModalProps = {
   demo: DemoExperience
+  remoteViewingWhatsAppUrl: string
   onClose: () => void
 }
 
-export function ApartmentDemoViewerModal({ demo, onClose }: ApartmentDemoViewerModalProps) {
+export function ApartmentDemoViewerModal({ demo, remoteViewingWhatsAppUrl, onClose }: ApartmentDemoViewerModalProps) {
   return (
     <div
       className="fixed inset-0 z-50 overflow-y-auto bg-black/70 p-3 md:p-6"
@@ -69,16 +70,16 @@ export function ApartmentDemoViewerModal({ demo, onClose }: ApartmentDemoViewerM
               </ul>
             </div>
             <div className="rounded-[1.5rem] bg-[#2b241c] p-5 text-[#f7f0e5]">
-              <p className="text-xs uppercase tracking-[0.22em] text-[#cdbca3]">Next step</p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                <a href="#apartment-contact" onClick={onClose} className="rounded-full bg-[#f0dfc6] px-4 py-2 text-sm font-semibold text-[#271f17]">
-                  Book Physical Visit
-                </a>
-                <a href="https://wa.me/" target="_blank" rel="noreferrer" className="rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white">
-                  Remote Viewing Follow-Up
-                </a>
+                <p className="text-xs uppercase tracking-[0.22em] text-[#cdbca3]">Next step</p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <a href="#apartment-contact" onClick={onClose} className="rounded-full bg-[#f0dfc6] px-4 py-2 text-sm font-semibold text-[#271f17]">
+                    Book Physical Visit
+                  </a>
+                  <a href={remoteViewingWhatsAppUrl} target="_blank" rel="noreferrer" className="rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white">
+                    Remote Viewing Follow-Up
+                  </a>
+                </div>
               </div>
-            </div>
           </div>
         </div>
       </div>

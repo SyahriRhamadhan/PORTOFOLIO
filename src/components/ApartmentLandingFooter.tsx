@@ -1,4 +1,5 @@
 import { Mail, MapPinned, Phone } from 'lucide-react'
+import { apartmentContactConfig } from '../data/apartmentLandingData'
 
 export function ApartmentLandingFooter() {
   return (
@@ -27,15 +28,15 @@ export function ApartmentLandingFooter() {
           <div className="mt-4 space-y-3 text-sm leading-7 text-[#d7cab8]">
             <p className="flex items-center gap-3">
               <MapPinned className="h-4 w-4 text-[#f0dfc6]" />
-              Batam, Indonesia
+              {apartmentContactConfig.salesLocationLabel}
             </p>
             <p className="flex items-center gap-3">
               <Phone className="h-4 w-4 text-[#f0dfc6]" />
-              Sales consultation and private viewing by appointment
+              {apartmentContactConfig.salesPhoneLabel}
             </p>
             <p className="flex items-center gap-3">
               <Mail className="h-4 w-4 text-[#f0dfc6]" />
-              Remote viewing support for local, SG, and overseas prospects
+              {apartmentContactConfig.salesEmail}
             </p>
           </div>
         </div>

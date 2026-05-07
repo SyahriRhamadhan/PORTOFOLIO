@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { BedDouble, Building2, Check } from 'lucide-react'
 import { apartmentUnitTypes, type UnitType } from '../../data/apartmentLandingData'
-import { fadeUp } from './apartmentMotion'
+import { buttonHover, cardHover, fadeUp } from './apartmentMotion'
 
 type ApartmentUnitTypesSectionProps = {
   onSelectUnit: (unit: UnitType) => void
@@ -25,6 +25,8 @@ export function ApartmentUnitTypesSection({ onSelectUnit }: ApartmentUnitTypesSe
           <motion.article
             key={unit.id}
             {...fadeUp}
+            whileHover={cardHover.whileHover}
+            transition={cardHover.transition}
             className="overflow-hidden rounded-[2rem] border border-[#7d6b52]/15 bg-white shadow-[0_30px_70px_-48px_rgba(20,15,10,0.6)]"
           >
             <img src={unit.image} alt={unit.name} className="h-72 w-full object-cover" />
@@ -63,13 +65,14 @@ export function ApartmentUnitTypesSection({ onSelectUnit }: ApartmentUnitTypesSe
                   <p className="text-xs uppercase tracking-[0.22em] text-[#8b7d67]">Starting from</p>
                   <p className="mt-1 text-lg font-semibold text-[#241f18]">{unit.price}</p>
                 </div>
-                <button
+                <motion.button
                   type="button"
                   onClick={() => onSelectUnit(unit)}
+                  {...buttonHover}
                   className="rounded-full border border-[#352c21] px-4 py-2 text-sm font-semibold text-[#2b241c] transition hover:bg-[#2b241c] hover:text-[#f7f0e5]"
                 >
                   Reserve Interest
-                </button>
+                </motion.button>
               </div>
             </div>
           </motion.article>

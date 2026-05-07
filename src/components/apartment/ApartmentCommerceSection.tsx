@@ -5,7 +5,7 @@ import {
   type CommerceCategory,
   type CommerceProduct,
 } from '../../data/apartmentLandingData'
-import { fadeUp } from './apartmentMotion'
+import { buttonHover, cardHover, fadeUp } from './apartmentMotion'
 
 type ApartmentCommerceSectionProps = {
   activeCategory: CommerceCategory | 'All'
@@ -59,6 +59,8 @@ export function ApartmentCommerceSection({
             <motion.article
               key={product.id}
               {...fadeUp}
+              whileHover={cardHover.whileHover}
+              transition={cardHover.transition}
               className="overflow-hidden rounded-[2rem] border border-[#7d6b52]/15 bg-white shadow-[0_30px_70px_-48px_rgba(20,15,10,0.6)]"
             >
               <img src={product.image} alt={product.name} className="h-56 w-full object-cover" />
@@ -77,21 +79,23 @@ export function ApartmentCommerceSection({
                     <p className="mt-1 text-lg font-semibold text-[#241f18]">{product.price}</p>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    <button
+                    <motion.button
                       type="button"
                       onClick={() => onViewProduct(product)}
+                      {...buttonHover}
                       className="inline-flex items-center gap-2 rounded-full border border-[#352c21] px-4 py-2 text-sm font-semibold text-[#2b241c] transition hover:bg-[#2b241c] hover:text-[#f7f0e5]"
                     >
                       View Details
-                    </button>
-                    <button
+                    </motion.button>
+                    <motion.button
                       type="button"
                       onClick={() => onAddToCart(product)}
+                      {...buttonHover}
                       className="inline-flex items-center gap-2 rounded-full bg-[#2b241c] px-4 py-2 text-sm font-semibold text-[#f7f0e5] transition hover:bg-[#3a3024]"
                     >
                       <ShoppingBag className="h-4 w-4" />
                       Add to Cart
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
               </div>

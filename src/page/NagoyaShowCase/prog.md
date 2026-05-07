@@ -21,6 +21,8 @@ Progress sudah masuk fase implementasi lanjutan. Halaman React untuk `#apartment
 - Commerce, inquiry CTA, dan demo viewer juga mulai dipisah ke komponen sendiri
 - Facilities, location, testimonials, FAQ, dan brochure flow juga sudah dipisah
 - Contact/CTA config mulai dipindah ke data source
+- Product modal dan sticky mobile bar sudah dipisah
+- CTA contact utama mulai baca dari config terpusat
 
 ## Scope yang Sudah Ter-cover
 
@@ -103,6 +105,8 @@ Progress sudah masuk fase implementasi lanjutan. Halaman React untuk `#apartment
 - `src/components/apartment/ApartmentBrochureSection.tsx`
 - `src/components/apartment/ApartmentInquirySection.tsx`
 - `src/components/apartment/ApartmentDemoViewerModal.tsx`
+- `src/components/apartment/ApartmentProductModal.tsx`
+- `src/components/apartment/ApartmentStickyMobileBar.tsx`
 - `src/components/apartment/ApartmentUnitModal.tsx`
 - `src/components/apartment/apartmentMotion.ts`
 - `src/components/ApartmentLandingNavbar.tsx`
@@ -118,4 +122,5 @@ Progress sudah masuk fase implementasi lanjutan. Halaman React untuk `#apartment
 - Tambahkan endpoint atau integrasi WhatsApp/form backend untuk submit inquiry
 - Ganti WhatsApp placeholder ke nomor sales yang benar
 - Tambahkan distribusi file brochure yang sebenarnya setelah submit
-- Pindahkan sisa CTA/link hardcoded lain ke config terpusat
+- Pindahkan block `Why this residence` terakhir agar page container makin tipis
+- Lengkapi semua CTA dengan nomor sales final dan channel produksi nyata

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Play, Sparkles } from 'lucide-react'
 import { apartmentQuickStats } from '../../data/apartmentLandingData'
-import { fadeUp } from './apartmentMotion'
+import { buttonHover, cardHover, fadeUp } from './apartmentMotion'
 
 type ApartmentHeroSectionProps = {
   onOpenDemo: () => void
@@ -27,36 +27,42 @@ export function ApartmentHeroSection({ onOpenDemo }: ApartmentHeroSectionProps) 
             Explore show units, compare layouts, open immersive demos, and reserve add-ons before move-in. Built for Batam, domestic investors, and Singapore-based prospects who need clarity before a physical visit.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
+            <motion.a
               href="#apartment-contact"
+              {...buttonHover}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1f1a14] px-6 py-3 text-sm font-semibold text-[#f7f0e5] transition hover:bg-[#342b21]"
             >
               Schedule a Visit
               <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="#apartment-unit-types"
+              {...buttonHover}
               className="inline-flex items-center justify-center gap-2 rounded-full border border-[#6f614e]/40 bg-white/65 px-6 py-3 text-sm font-semibold text-[#2a241d] backdrop-blur transition hover:bg-white"
             >
               Explore Unit Types
-            </a>
+            </motion.a>
           </div>
           <div className="mt-12 grid gap-4 sm:grid-cols-2">
             {apartmentQuickStats.map((item) => (
-              <div
+              <motion.div
                 key={item.label}
+                {...cardHover}
                 className="flex min-h-[188px] flex-col rounded-[1.75rem] border border-[#7a6a52]/15 bg-white/72 p-6 shadow-[0_20px_60px_-36px_rgba(43,33,21,0.55)] backdrop-blur"
               >
                 <p className="text-[11px] uppercase tracking-[0.24em] text-[#7f735f]">{item.label}</p>
                 <p className="mt-4 font-['Georgia'] text-[2.45rem] leading-[0.95] text-[#2a241d]">{item.value}</p>
                 <p className="mt-4 max-w-[22ch] text-sm leading-7 text-[#5e5447]">{item.note}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
 
         <motion.div {...fadeUp} className="relative z-10 flex items-start lg:items-center">
-          <div className="relative w-full overflow-hidden rounded-[2rem] bg-[#ddd0be] shadow-[0_35px_90px_-45px_rgba(20,15,10,0.55)]">
+          <motion.div
+            {...cardHover}
+            className="relative w-full overflow-hidden rounded-[2rem] bg-[#ddd0be] shadow-[0_35px_90px_-45px_rgba(20,15,10,0.55)]"
+          >
             <img
               src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1500&q=80"
               alt="Modern apartment interior"
@@ -72,17 +78,18 @@ export function ApartmentHeroSection({ onOpenDemo }: ApartmentHeroSectionProps) 
                 </p>
               </div>
               <div className="flex items-end">
-                <button
+                <motion.button
                   type="button"
                   onClick={onOpenDemo}
+                  {...buttonHover}
                   className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/12 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
                 >
                   <Play className="h-4 w-4" />
                   View 360 Demo
-                </button>
+                </motion.button>
               </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
