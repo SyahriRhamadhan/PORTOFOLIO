@@ -37,25 +37,20 @@ export function ApartmentDemoViewerModal({ demo, remoteViewingWhatsAppUrl, onClo
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="relative overflow-hidden rounded-[1.75rem] bg-[#ddd0be]">
-            <img src={demo.image} alt={demo.name} className="h-[420px] w-full object-cover md:h-[560px]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_18%,rgba(22,18,14,0.18)_68%,rgba(22,18,14,0.42)_100%)]" />
-            <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/30 bg-white/10 backdrop-blur">
-              <div className="flex h-full items-center justify-center text-center text-xs font-semibold uppercase tracking-[0.22em] text-white">
-                Demo
-                <br />
-                Viewer
-              </div>
-            </div>
-            <button className="absolute left-[22%] top-[36%] h-4 w-4 rounded-full border-2 border-white bg-[#f0dfc6]" />
-            <button className="absolute left-[62%] top-[44%] h-4 w-4 rounded-full border-2 border-white bg-[#f0dfc6]" />
-            <button className="absolute left-[48%] top-[63%] h-4 w-4 rounded-full border-2 border-white bg-[#f0dfc6]" />
+            <iframe
+              src={demo.embedUrl}
+              title={`${demo.name} 360 viewer`}
+              className="h-[420px] w-full md:h-[560px]"
+              allowFullScreen
+              loading="lazy"
+            />
           </div>
 
           <div className="space-y-4">
             <div className="rounded-[1.5rem] bg-white p-5">
               <p className="text-xs uppercase tracking-[0.22em] text-[#8b7d67]">Viewer note</p>
               <p className="mt-3 text-sm leading-7 text-[#5d5246]">
-                This is a richer placeholder for the photo sphere / walk-in requirement in the PRD. It simulates hotspot-based review flow before real 360 integration.
+                This dummy viewer uses a public interior panorama so the experience stays focused on room layout, furniture flow, and finish reading. It should later be replaced with Nagoya Hill-specific 360 room assets.
               </p>
             </div>
             <div className="rounded-[1.5rem] bg-white p-5">

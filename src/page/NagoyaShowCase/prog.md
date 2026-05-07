@@ -47,6 +47,7 @@ Progress sudah masuk fase implementasi lanjutan. Halaman React untuk `#apartment
 - State untuk memilih demo aktif
 - Placeholder viewer yang bisa nanti diganti embed real 360 viewer
 - Modal viewer dengan hotspot list dan CTA follow-up
+- Modal viewer sudah memakai embed public Pannellum sebagai dummy photo sphere
 
 ### 4. Facilities
 
@@ -133,6 +134,7 @@ Progress sudah masuk fase implementasi lanjutan. Halaman React untuk `#apartment
 - Ganti image placeholder Unsplash dengan asset real project
 - Hubungkan CTA ke WhatsApp number yang benar
 - Integrasikan viewer 360 asli bila asset photo sphere sudah tersedia
+- Ganti embed public Pannellum dengan asset 360 resmi Nagoya Hill saat sudah tersedia
 - Tambahkan endpoint atau integrasi WhatsApp/form backend untuk submit inquiry
 - Ganti WhatsApp placeholder ke nomor sales yang benar
 - Tambahkan distribusi file brochure yang sebenarnya setelah submit

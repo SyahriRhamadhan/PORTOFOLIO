@@ -54,6 +54,7 @@ export type DemoExperience = {
   image: string
   cta: string
   ctaId: string
+  embedUrl: string
   hotspots: string[]
   hotspotsId: string[]
 }
@@ -229,33 +230,35 @@ export const apartmentFacilities: FacilityItem[] = [
 export const apartmentDemos: DemoExperience[] = [
   {
     id: 'lobby-sphere',
-    name: 'Lobby Arrival Sphere',
-    nameId: 'Sphere Area Lobby',
+    name: 'Living Room Photo Sphere',
+    nameId: 'Photo Sphere Ruang Tamu',
     type: 'Photo Sphere',
-    location: 'Grand lobby and concierge axis',
-    locationId: 'Lobby utama dan axis concierge',
-    description: 'A 360 preview that helps remote buyers understand scale, material finish, and arrival experience before visiting.',
-    descriptionId: 'Pratinjau 360 yang membantu pembeli remote memahami skala, finishing material, dan pengalaman kedatangan sebelum berkunjung.',
+    location: 'Open-plan living room and dining transition',
+    locationId: 'Transisi ruang tamu open-plan dan area makan',
+    description: 'A 360 interior preview that helps remote buyers read room scale, furniture flow, and finish character before visiting.',
+    descriptionId: 'Pratinjau interior 360 yang membantu pembeli remote memahami skala ruang, alur furnitur, dan karakter finishing sebelum berkunjung.',
     image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80',
     cta: 'Open 360 View',
     ctaId: 'Buka Tampilan 360',
-    hotspots: ['Concierge desk', 'Double-height arrival volume', 'Material finish tone', 'Drop-off and entry path'],
-    hotspotsId: ['Meja concierge', 'Volume lobby double-height', 'Tone finishing material', 'Jalur drop-off dan masuk'],
+    embedUrl: 'https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://renderstuff.com/assets/133/equirectangular-360-panorama-interior-rendering-by-3ds-max-and-v-ray.jpg',
+    hotspots: ['Sofa and TV wall proportion', 'Dining corner transition', 'Natural light spread', 'Warm material palette'],
+    hotspotsId: ['Proporsi sofa dan dinding TV', 'Transisi sudut makan', 'Sebaran cahaya alami', 'Palet material hangat'],
   },
   {
     id: 'show-unit-walk',
     name: 'One Bedroom Walk-In Demo',
     nameId: 'Demo Walk-In Satu Kamar',
     type: 'Walk-In Demo',
-    location: 'Show unit with balcony sequence',
-    locationId: 'Show unit dengan urutan area balkon',
-    description: 'A guided walkthrough with hotspots for kitchen set, bathroom finish, storage, and balcony outlook.',
-    descriptionId: 'Tur terpandu dengan hotspot untuk kitchen set, finishing bathroom, storage, dan arah pandang balkon.',
-    image: 'https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=1200&q=80',
+    location: 'Show unit sequence from kitchen to bedroom',
+    locationId: 'Urutan show unit dari dapur ke kamar tidur',
+    description: 'A guided interior walkthrough with hotspots for kitchen set, wardrobe fit, bathroom finish, and bedroom circulation.',
+    descriptionId: 'Tur interior terpandu dengan hotspot untuk kitchen set, kesesuaian wardrobe, finishing bathroom, dan sirkulasi kamar tidur.',
+    image: 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80',
     cta: 'Play Walk-In Demo',
     ctaId: 'Putar Demo Walk-In',
-    hotspots: ['Kitchen line', 'Bedroom threshold', 'Bathroom finish', 'Balcony outlook'],
-    hotspotsId: ['Kitchen line', 'Ambang kamar tidur', 'Finishing bathroom', 'Arah pandang balkon'],
+    embedUrl: 'https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://renderstuff.com/assets/133/equirectangular-360-panorama-interior-rendering-by-3ds-max-and-v-ray.jpg',
+    hotspots: ['Kitchen line', 'Wardrobe wall', 'Bathroom finish', 'Bedroom movement space'],
+    hotspotsId: ['Kitchen line', 'Dinding wardrobe', 'Finishing bathroom', 'Ruang gerak kamar tidur'],
   },
 ]
 

@@ -137,7 +137,7 @@ export function ApartmentAiChatWidget({ language }: ApartmentAiChatWidgetProps) 
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 12, scale: 0.98 }}
           transition={{ duration: 0.22, ease: 'easeOut' }}
-          className="w-[min(92vw,24rem)] overflow-hidden rounded-[1.75rem] border border-[#7d6b52]/20 bg-[#f8f2e9] shadow-[0_28px_60px_-35px_rgba(20,15,10,0.55)]"
+          className="w-[min(92vw,24rem)] overflow-hidden rounded-[1.75rem] border border-white/65 bg-[#f8f2e9] shadow-[0_28px_60px_-35px_rgba(20,15,10,0.55)] ring-1 ring-white/35"
         >
           <div className="flex items-center justify-between border-b border-[#e6d9c6] bg-[#1f1a14] px-4 py-3 text-[#f7f0e5]">
             <div className="flex items-center gap-2">
@@ -212,7 +212,7 @@ export function ApartmentAiChatWidget({ language }: ApartmentAiChatWidgetProps) 
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
         {...buttonHover}
-        className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#1f1a14] px-5 py-3 text-sm font-semibold text-[#f7f0e5] shadow-[0_18px_40px_-25px_rgba(20,15,10,0.65)]"
+        className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/70 bg-[#1f1a14] px-5 py-3 text-sm font-semibold text-[#f7f0e5] shadow-[0_18px_40px_-25px_rgba(20,15,10,0.65)] ring-1 ring-white/35"
       >
         <MessageCircle className="h-4 w-4" />
         {language === 'id' ? 'Demo Chat AI' : 'AI Chat Demo'}
