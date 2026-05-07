@@ -104,7 +104,7 @@ function App() {
         <main className="w-full px-0 pb-0 pt-0">
           <ApartmentLandingPage language={apartmentLanguage} />
         </main>
-        <ApartmentLandingFooter />
+        <ApartmentLandingFooter language={apartmentLanguage} />
       </div>
     )
   }

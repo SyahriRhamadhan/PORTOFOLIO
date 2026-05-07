@@ -1,19 +1,25 @@
 import { Check, X } from 'lucide-react'
-import { type DemoExperience } from '../../data/apartmentLandingData'
+import { apartmentTextCopy, type ApartmentLanguage, type DemoExperience } from '../../data/apartmentLandingData'
 
 type ApartmentDemoViewerModalProps = {
   demo: DemoExperience
+  language: ApartmentLanguage
   remoteViewingWhatsAppUrl: string
   onClose: () => void
 }
 
-export function ApartmentDemoViewerModal({ demo, remoteViewingWhatsAppUrl, onClose }: ApartmentDemoViewerModalProps) {
+export function ApartmentDemoViewerModal({ demo, language, remoteViewingWhatsAppUrl, onClose }: ApartmentDemoViewerModalProps) {
+  const copy = apartmentTextCopy[language] ?? apartmentTextCopy.en
+  const viewerUrl = demo.embedUrl.includes('autoLoad=true')
+    ? demo.embedUrl
+    : `${demo.embedUrl}&autoLoad=true`
+
   return (
     <div
       className="fixed inset-0 z-50 overflow-y-auto bg-black/70 p-3 md:p-6"
       role="dialog"
       aria-modal="true"
-      aria-label={`${demo.name} viewer`}
+      aria-label={`${language === 'id' ? demo.nameId : demo.name} viewer`}
       onClick={onClose}
     >
       <div
@@ -22,9 +28,11 @@ export function ApartmentDemoViewerModal({ demo, remoteViewingWhatsAppUrl, onClo
       >
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.24em] text-[#8b7d67]">{demo.type}</p>
-            <h3 className="mt-2 font-['Georgia'] text-3xl">{demo.name}</h3>
-            <p className="mt-2 text-sm leading-7 text-[#5d5246]">{demo.location}</p>
+            <p className="text-xs uppercase tracking-[0.24em] text-[#8b7d67]">
+              {language === 'id' ? (demo.type === 'Photo Sphere' ? 'Photo Sphere' : 'Demo Walk-In') : demo.type}
+            </p>
+            <h3 className="mt-2 font-['Georgia'] text-3xl">{language === 'id' ? demo.nameId : demo.name}</h3>
+            <p className="mt-2 text-sm leading-7 text-[#5d5246]">{language === 'id' ? demo.locationId : demo.location}</p>
           </div>
           <button
             type="button"
@@ -38,8 +46,8 @@ export function ApartmentDemoViewerModal({ demo, remoteViewingWhatsAppUrl, onClo
         <div className="mt-6 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="relative overflow-hidden rounded-[1.75rem] bg-[#ddd0be]">
             <iframe
-              src={demo.embedUrl}
-              title={`${demo.name} 360 viewer`}
+              src={viewerUrl}
+              title={`${language === 'id' ? demo.nameId : demo.name} 360 viewer`}
               className="h-[420px] w-full md:h-[560px]"
               allowFullScreen
               loading="lazy"
@@ -48,15 +56,13 @@ export function ApartmentDemoViewerModal({ demo, remoteViewingWhatsAppUrl, onClo
 
           <div className="space-y-4">
             <div className="rounded-[1.5rem] bg-white p-5">
-              <p className="text-xs uppercase tracking-[0.22em] text-[#8b7d67]">Viewer note</p>
-              <p className="mt-3 text-sm leading-7 text-[#5d5246]">
-                This dummy viewer uses a public interior panorama so the experience stays focused on room layout, furniture flow, and finish reading. It should later be replaced with Nagoya Hill-specific 360 room assets.
-              </p>
+              <p className="text-xs uppercase tracking-[0.22em] text-[#8b7d67]">{copy.demo.viewerNote}</p>
+              <p className="mt-3 text-sm leading-7 text-[#5d5246]">{copy.demo.viewerNoteBody}</p>
             </div>
             <div className="rounded-[1.5rem] bg-white p-5">
-              <p className="text-xs uppercase tracking-[0.22em] text-[#8b7d67]">Hotspot highlights</p>
+              <p className="text-xs uppercase tracking-[0.22em] text-[#8b7d67]">{copy.demo.hotspotHighlights}</p>
               <ul className="mt-4 space-y-2 text-sm leading-7 text-[#584d41]">
-                {demo.hotspots.map((item) => (
+                {(language === 'id' ? demo.hotspotsId : demo.hotspots).map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <Check className="mt-1 h-4 w-4 text-[#847055]" />
                     <span>{item}</span>
@@ -65,13 +71,13 @@ export function ApartmentDemoViewerModal({ demo, remoteViewingWhatsAppUrl, onClo
               </ul>
             </div>
             <div className="rounded-[1.5rem] bg-[#2b241c] p-5 text-[#f7f0e5]">
-                <p className="text-xs uppercase tracking-[0.22em] text-[#cdbca3]">Next step</p>
+                <p className="text-xs uppercase tracking-[0.22em] text-[#cdbca3]">{copy.demo.nextStep}</p>
                 <div className="mt-4 flex flex-wrap gap-3">
                   <a href="#apartment-contact" onClick={onClose} className="rounded-full bg-[#f0dfc6] px-4 py-2 text-sm font-semibold text-[#271f17]">
-                    Book Physical Visit
+                    {copy.demo.bookPhysicalVisit}
                   </a>
                   <a href={remoteViewingWhatsAppUrl} target="_blank" rel="noreferrer" className="rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white">
-                    Remote Viewing Follow-Up
+                    {copy.common.remoteFollowUp}
                   </a>
                 </div>
               </div>

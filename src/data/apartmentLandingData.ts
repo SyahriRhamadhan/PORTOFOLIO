@@ -390,6 +390,38 @@ export const apartmentTextCopy = {
       submitInquiry: 'Submit Inquiry',
       continueWhatsapp: 'Continue via WhatsApp',
     },
+    demo: {
+      eyebrow: 'Demo experience',
+      title: 'Photo sphere and walk-in previews for remote evaluation.',
+      description:
+        'This section is designed for buyers who need more than static renders. It gives a stronger sense of finish, proportion, and movement through the space before they commit to a physical tour.',
+      placeholder: 'Interactive Demo Placeholder',
+      bookPhysicalVisit: 'Book Physical Visit',
+      viewerNote: 'Viewer note',
+      viewerNoteBody:
+        'This dummy viewer uses a public interior panorama so the experience stays focused on room layout, furniture flow, and finish reading. It should later be replaced with Nagoya Hill-specific 360 room assets.',
+      hotspotHighlights: 'Hotspot highlights',
+      nextStep: 'Next step',
+    },
+    facilities: {
+      eyebrow: 'Facilities and amenities',
+      title: 'All luxury facilities.',
+      description:
+        'Nagoya Hill Condominium provides not only a unit for living, but also luxury facilities intended to complete the experience of modern living in the superblock environment.',
+    },
+    footer: {
+      developedBy: 'Developed by',
+      description:
+        'Marketing Gallery & Show Unit located at Nagoya Hill Shopping Mall, supporting property inquiry, physical viewing, and remote-first showcase flow in this dummy project.',
+      quickLinks: 'Quick links',
+      contactDirection: 'Contact Direction',
+      unitTypes: 'Unit Types',
+      demo: '360 Demo',
+      commerce: 'Mini Commerce',
+      bookTour: 'Book Tour',
+      marketingGallery: 'Marketing Gallery & Show Unit at Nagoya Hill Shopping Mall',
+      showcaseRoute: 'Dummy showcase route: `#apartment-living`',
+    },
   },
   id: {
     nav: {
@@ -426,6 +458,38 @@ export const apartmentTextCopy = {
       requestBrochure: 'Minta Brosur',
       submitInquiry: 'Kirim Inquiry',
       continueWhatsapp: 'Lanjut via WhatsApp',
+    },
+    demo: {
+      eyebrow: 'Pengalaman demo',
+      title: 'Photo sphere dan preview walk-in untuk evaluasi jarak jauh.',
+      description:
+        'Section ini dirancang untuk pembeli yang membutuhkan lebih dari render statis. Bagian ini memberi gambaran yang lebih kuat tentang finishing, proporsi, dan alur gerak ruang sebelum mereka berkomitmen ke tur fisik.',
+      placeholder: 'Placeholder Demo Interaktif',
+      bookPhysicalVisit: 'Jadwalkan Kunjungan Fisik',
+      viewerNote: 'Catatan viewer',
+      viewerNoteBody:
+        'Viewer dummy ini memakai panorama interior publik agar pengalaman tetap fokus pada layout ruang, alur furnitur, dan pembacaan finishing. Nanti bisa diganti dengan aset room 360 milik Nagoya Hill.',
+      hotspotHighlights: 'Sorotan hotspot',
+      nextStep: 'Langkah berikutnya',
+    },
+    facilities: {
+      eyebrow: 'Fasilitas dan amenitas',
+      title: 'Semua fasilitas mewah.',
+      description:
+        'Nagoya Hill Condominium menyediakan bukan hanya unit untuk tinggal, tetapi juga fasilitas mewah yang dirancang untuk melengkapi pengalaman hidup modern di lingkungan superblock.',
+    },
+    footer: {
+      developedBy: 'Dikembangkan oleh',
+      description:
+        'Marketing Gallery & Show Unit berlokasi di Nagoya Hill Shopping Mall, mendukung inquiry properti, kunjungan fisik, dan alur showcase remote-first pada dummy project ini.',
+      quickLinks: 'Tautan cepat',
+      contactDirection: 'Arah kontak',
+      unitTypes: 'Tipe Unit',
+      demo: 'Demo 360',
+      commerce: 'Mini Commerce',
+      bookTour: 'Jadwalkan Tur',
+      marketingGallery: 'Marketing Gallery & Show Unit di Nagoya Hill Shopping Mall',
+      showcaseRoute: 'Route dummy showcase: `#apartment-living`',
     },
   },
 } as const

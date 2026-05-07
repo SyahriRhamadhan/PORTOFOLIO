@@ -139,12 +139,13 @@ export function ApartmentLandingPage({ language }: ApartmentLandingPageProps) {
         <ApartmentUnitTypesSection language={language} onSelectUnit={setSelectedUnit} />
 
         <ApartmentDemoSection
+          language={language}
           selectedDemoId={selectedDemoId}
           onSelectDemo={setSelectedDemoId}
           onOpenDemo={() => setIsDemoViewerOpen(true)}
         />
 
-        <ApartmentFacilitiesSection />
+        <ApartmentFacilitiesSection language={language} />
 
         <ApartmentLocationSection />
 
@@ -196,6 +197,7 @@ export function ApartmentLandingPage({ language }: ApartmentLandingPageProps) {
       {isDemoViewerOpen ? (
         <ApartmentDemoViewerModal
           demo={selectedDemo}
+          language={language}
           remoteViewingWhatsAppUrl={apartmentContactConfig.remoteViewingWhatsAppUrl}
           onClose={() => setIsDemoViewerOpen(false)}
         />
